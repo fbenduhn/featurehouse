@@ -389,8 +389,7 @@ CodeUnit_TopLevel:
 	@FSTTerminal(name="{PPDefineStatement}") LL(2) PPDefineStatement :: Define | 
 	@FSTTerminal(name="{PPIfDef_TopLevel}") LL(2) PPIfDef_TopLevel :: IfDefTL |
 	@FSTTerminal(name="{PPOtherIgnore}") LL(2) "#" PPOtherIgnore JAVATOKEN(findLineEnd) @! :: Preprocessor | 
-	@FSTTerminal(name="{Function}",compose="JavaMethodOverriding") LL("Function()") Function :: Func |
-	@FSTTerminal(name="{FunctionDeclaration}") LL("FunctionHeader()") FunctionDeclaration :: FuncDecl | 
+	@FSTTerminal(name="{Function}",compose="JavaMethodOverriding") LL("FunctionHeader()") Function :: Func | 
 	@FSTTerminal(name="{TypeDef}") TypeDef :: TypeDef_ |
 	@FSTTerminal(name="{ExternDecl}") LL(3) ExternDecl :: ExternDec |
 	@FSTNonTerminal(name="{Id}") LL(3) "struct" Id "{" (Statement)* "}" ";" :: StructDec |
@@ -483,12 +482,9 @@ IfElseIf_TopLevel:
 	IfElseIf JAVATOKEN(findLineEnd)@!
 	Sequence_CodeUnit_TopLevel;
 
-FunctionDeclaration:
-	FunctionHeader [FunctionParameterList] ")" @+! Semi @-!;
-
 @FSTExportName("{FunctionHeader}({FunctionParameterList})")
 Function:
-	 FunctionHeader [FunctionParameterList] ")" @+! MethodDeclarationBlock @-!;
+	 FunctionHeader [FunctionParameterList] ")" @+! BlockOrSemi @-!;
 
 @FSTExportName("{<IDENTIFIER>}")	 
 FunctionHeader:
@@ -516,17 +512,10 @@ GotoLabel:
 Sequence_CodeUnit_InBlock:
 	(LL(2) CodeUnit_InBlock)*;
 
-MethodDeclarationBlock:
-	LL(1) Block |
-	(VarDecl)+ Block;//oldstyle method declarations
-
 BlockOrSemi:
 	LL(1) ";" <NONE> |
 	LL(1) Block |
 	(VarDecl)+ Block;//oldstyle method declarations
-
-Semi: 
-	";";
 
 BlockOrSingleStatement:
 	LL(1) Block |
