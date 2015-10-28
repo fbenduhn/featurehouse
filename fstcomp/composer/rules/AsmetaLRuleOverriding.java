@@ -226,4 +226,9 @@ public class AsmetaLRuleOverriding extends AbstractCompositionRule {
     	}    	
 		
     }
+    
+	@Override
+	public String getRuleName() {
+		return COMPOSITION_RULE_NAME;
+	}
 }

@@ -11,7 +11,7 @@ import printer.PrintVisitorException;
 import builder.ArtifactBuilderInterface;
 import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
-
+import composer.rules.AsmetaLRuleOverriding;
 import composer.rules.CSharpMethodOverriding;
 import composer.rules.CompositionError;
 import composer.rules.CompositionRule;
@@ -20,6 +20,7 @@ import composer.rules.ImplementsListMerging;
 import composer.rules.ModifierListSpecialization;
 import composer.rules.Replacement;
 import composer.rules.StringConcatenation;
+import composer.rules.meta.AsmetaLRuleOverridingMeta;
 import composer.rules.meta.ConstructorConcatenationMeta;
 import composer.rules.meta.ContractCompositionMeta;
 import composer.rules.meta.FeatureModelInfo;
@@ -33,7 +34,6 @@ import composer.rules.rtcomp.c.CRuntimeReplacement;
 import composer.rules.rtcomp.java.JavaRuntimeFeatureSelection;
 import composer.rules.rtcomp.java.JavaRuntimeFunctionRefinement;
 import composer.rules.rtcomp.java.JavaRuntimeReplacement;
-
 import counter.Counter;
 import de.ovgu.cide.fstgen.ast.AbstractFSTParser;
 import de.ovgu.cide.fstgen.ast.FSTNode;
@@ -103,6 +103,7 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new FieldOverridingMeta());
 		compositionRules.add(new ExpansionOverriding());
 		compositionRules.add(new CompositionError());
+		compositionRules.add(new AsmetaLRuleOverridingMeta());
 		
 		try {
 			try {
