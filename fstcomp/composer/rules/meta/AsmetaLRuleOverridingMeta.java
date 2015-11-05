@@ -17,15 +17,38 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 	public void compose(FSTTerminal terminalA, FSTTerminal terminalB,
 			FSTTerminal terminalComp, FSTNonTerminal nonterminalParent){
 		System.out.println("in asm meta compose");
-		super.compose(terminalA, terminalB, terminalComp, nonterminalParent);
 		
-		if(replaceOriginal(terminalA)){
-			String ruleName = terminalA.getName();
-			System.out.println("TerminalComp Name: " + terminalComp.getName());
+		
+		if(terminalA.getBody().contains("@original")){
 			//terminalA.getFeatureName();
-			//StringBuilder newBody = new StringBuilder(terminalComp.getBody());
-			//newBody.insert(offset, str)
+			int indexEqualA = terminalA.getBody().indexOf("=");
+			
+			StringBuilder newBody = new StringBuilder(terminalA.getBody());
+			
+			//TODO: replace "true" with FeatureVar name
+			newBody.insert(indexEqualA + 1, "\n\t if true then");
+			newBody.append("\n\t else \n\t\t @original[]\n\t endif");
+			
+			terminalA.setBody(newBody.toString());
+		} else {
+			//terminalA.getFeatureName();
+			int indexEqualA = terminalA.getBody().indexOf("=");
+			int indexEqualB = terminalB.getBody().indexOf("=");
+			String ruleBodyB = terminalB.getBody().substring(indexEqualB + 1);
+			
+			StringBuilder newBody = new StringBuilder(terminalA.getBody());
+			
+			//TODO: replace "true" with FeatureVar name
+			newBody.insert(indexEqualA + 1, "\n\t if true then");
+			newBody.append("\n\t else \n\t\t " + ruleBodyB +"\n\t endif");
+			
+			terminalComp.setBody(newBody.toString());
 		}
+		System.out.println("terminalA: " + terminalA.getBody());
+		System.out.println("terminalB: " + terminalB.getBody());
+		System.out.println("terminalComp: " + terminalComp.getBody());
+		super.compose(terminalA, terminalB, terminalComp, nonterminalParent);		
+
 		
 		System.out.println("metaTerminalComp " + terminalComp.getBody());
 		
@@ -45,11 +68,11 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 //		}
 	}
 	
-	/**
-	 * @param terminalA
-	 * @return
-	 */
-	protected boolean replaceOriginal(FSTTerminal terminalA) {
-		return terminalA.getBody().matches("(?s).*\\s*original\\s*.*");
-	}
+//	/**
+//	 * @param terminalA
+//	 * @return
+//	 */
+//	protected boolean replaceOriginal(FSTTerminal terminalA) {
+//		return terminalA.getBody().matches("(?s).*original.*");
+//	}
 }
