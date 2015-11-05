@@ -1,12 +1,7 @@
 package composer.rules.meta;
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import composer.CompositionException;
 import composer.rules.AsmetaLRuleOverriding;
-import de.ovgu.cide.fstgen.ast.FSTNode;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
 import de.ovgu.cide.fstgen.ast.FSTTerminal;
 
@@ -44,35 +39,8 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 			
 			terminalComp.setBody(newBody.toString());
 		}
-		System.out.println("terminalA: " + terminalA.getBody());
-		System.out.println("terminalB: " + terminalB.getBody());
-		System.out.println("terminalComp: " + terminalComp.getBody());
+		
 		super.compose(terminalA, terminalB, terminalComp, nonterminalParent);		
-
-		
-		System.out.println("metaTerminalComp " + terminalComp.getBody());
-		
-//		if (!super.replaceOriginal(terminalA)) {
-//			// all sub methods will not exist when this feature is selected
-//			// TODO experimental
-//			// dont do this if generating runtime assertions  
-//			List<FSTNode> children = ((FSTNonTerminal)nonterminalParent.getParent()).getChildren();
-//			for (FSTNode child : children) {
-//				if (child.getType().equals("MethodDeclarationWithSpec")) {
-//					FSTTerminal terminal = (FSTTerminal)((FSTNonTerminal)child).getChildren().get(2);
-//					if (terminal.getName().equals(terminalA.getName())) {
-//						setNotFeature(child, getFeatureName(terminalA));
-//					}
-//				}
-//			}
-//		}
 	}
 	
-//	/**
-//	 * @param terminalA
-//	 * @return
-//	 */
-//	protected boolean replaceOriginal(FSTTerminal terminalA) {
-//		return terminalA.getBody().matches("(?s).*original.*");
-//	}
 }

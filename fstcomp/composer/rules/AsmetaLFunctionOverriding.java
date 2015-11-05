@@ -55,4 +55,9 @@ public class AsmetaLFunctionOverriding extends AbstractCompositionRule
     	}
     	terminalComp.setBody(terminalA.getBody());    	
     }
+    
+	@Override
+	public String getRuleName() {
+		return COMPOSITION_RULE_NAME;
+	}
 }
