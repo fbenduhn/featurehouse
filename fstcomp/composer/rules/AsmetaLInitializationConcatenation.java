@@ -18,4 +18,9 @@ public class AsmetaLInitializationConcatenation extends AbstractCompositionRule
     	bodyA = bodyA.replace("@original()", bodyB);    	
     	terminalComp.setBody(bodyA);    	
     }
+    
+	@Override
+	public String getRuleName() {
+		return COMPOSITION_RULE_NAME;
+	}
 }

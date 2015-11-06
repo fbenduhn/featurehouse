@@ -21,6 +21,8 @@ import composer.rules.ModifierListSpecialization;
 import composer.rules.Replacement;
 import composer.rules.StringConcatenation;
 import composer.rules.meta.AsmetaLRuleOverridingMeta;
+import composer.rules.meta.AsmetaLFunctionOverridingMeta;
+import composer.rules.meta.AsmetaLInvariantConjunctionMeta;
 import composer.rules.meta.ConstructorConcatenationMeta;
 import composer.rules.meta.ContractCompositionMeta;
 import composer.rules.meta.FeatureModelInfo;
@@ -104,6 +106,8 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new ExpansionOverriding());
 		compositionRules.add(new CompositionError());
 		compositionRules.add(new AsmetaLRuleOverridingMeta());
+		compositionRules.add(new AsmetaLFunctionOverridingMeta());
+		compositionRules.add(new AsmetaLInvariantConjunctionMeta());
 		
 		try {
 			try {

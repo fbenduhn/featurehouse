@@ -11,7 +11,6 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 	@Override
 	public void compose(FSTTerminal terminalA, FSTTerminal terminalB,
 			FSTTerminal terminalComp, FSTNonTerminal nonterminalParent){
-		System.out.println("in asm meta compose");
 		
 		
 		if(terminalA.getBody().contains("@original")){
