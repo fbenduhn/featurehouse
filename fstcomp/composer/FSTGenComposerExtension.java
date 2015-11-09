@@ -11,6 +11,7 @@ import printer.PrintVisitorException;
 import builder.ArtifactBuilderInterface;
 import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
+import composer.rules.AsmetaLInitializationConcatenation;
 import composer.rules.AsmetaLRuleOverriding;
 import composer.rules.CSharpMethodOverriding;
 import composer.rules.CompositionError;
@@ -108,6 +109,7 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new AsmetaLRuleOverridingMeta());
 		compositionRules.add(new AsmetaLFunctionOverridingMeta());
 		compositionRules.add(new AsmetaLInvariantConjunctionMeta());
+		compositionRules.add(new AsmetaLInitializationConcatenation());
 		
 		try {
 			try {

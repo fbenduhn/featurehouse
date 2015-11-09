@@ -10,7 +10,6 @@ public class Replacement extends AbstractCompositionRule {
 	@Override
 	public void compose(FSTTerminal terminalA, FSTTerminal terminalB,
 			FSTTerminal terminalComp, FSTNonTerminal nonterminalParent) {
-		
 		FSTGenComposer.outStream.println("Terminal replacement: " +
 				 terminalA.toString() + " replaces " +
 				 terminalB.toString());
