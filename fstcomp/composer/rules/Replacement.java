@@ -1,7 +1,6 @@
 package composer.rules;
 
 import composer.FSTGenComposer;
-
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
 import de.ovgu.cide.fstgen.ast.FSTTerminal;
 
@@ -17,4 +16,9 @@ public class Replacement extends AbstractCompositionRule {
 		// do nothing - the work has already been done in FSTGenComposer
 	}
 	public final static String COMPOSITION_RULE_NAME = FSTTerminal.defaultCompositionMechanism;
+
+	@Override
+	public String getRuleName() {
+		return COMPOSITION_RULE_NAME;
+	}
 }
