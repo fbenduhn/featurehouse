@@ -19,8 +19,8 @@ public class AsmetaLFunctionOverridingMeta extends AsmetaLFunctionOverriding{
 		
 		StringBuilder newBody = new StringBuilder(terminalA.getBody());
 		
-		//TODO: replace "true" with FeatureVar name
-		newBody.insert(indexEqualA + 1, "\n\t if true then");
+		String featureName = terminalA.getFeatureName().toLowerCase() + "__refinementVar__";
+		newBody.insert(indexEqualA + 1, "\n\t if " + featureName + " then");
 		newBody.append("\n\t else \n\t\t " + functionBodyB +"\n\t endif");
 		
 		terminalA.setBody(newBody.toString());

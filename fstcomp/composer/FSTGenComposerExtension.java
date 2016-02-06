@@ -11,6 +11,8 @@ import printer.PrintVisitorException;
 import builder.ArtifactBuilderInterface;
 import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
+import composer.rules.AsmetaLCTLSPECSOverriding;
+import composer.rules.AsmetaLImportOverriding;
 import composer.rules.AsmetaLInitializationConcatenation;
 import composer.rules.AsmetaLRuleOverriding;
 import composer.rules.CSharpMethodOverriding;
@@ -21,6 +23,7 @@ import composer.rules.ImplementsListMerging;
 import composer.rules.ModifierListSpecialization;
 import composer.rules.Replacement;
 import composer.rules.StringConcatenation;
+import composer.rules.meta.AsmetaLInitializationConcatenationMeta;
 import composer.rules.meta.AsmetaLRuleOverridingMeta;
 import composer.rules.meta.AsmetaLFunctionOverridingMeta;
 import composer.rules.meta.AsmetaLInvariantConjunctionMeta;
@@ -47,6 +50,7 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 	
 	public static boolean key = false;
 	public static boolean metaproduct = false;
+	private boolean inAsmFile = false; 
 	private FeatureModelInfo modelInfo = new MinimalFeatureModelInfo();
 	
 
@@ -109,7 +113,9 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new AsmetaLRuleOverridingMeta());
 		compositionRules.add(new AsmetaLFunctionOverridingMeta());
 		compositionRules.add(new AsmetaLInvariantConjunctionMeta());
-		compositionRules.add(new AsmetaLInitializationConcatenation());
+		compositionRules.add(new AsmetaLInitializationConcatenationMeta());
+		compositionRules.add(new AsmetaLImportOverriding());
+		compositionRules.add(new AsmetaLCTLSPECSOverriding());
 		
 		try {
 			try {
@@ -223,6 +229,15 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 	}
 	
 	private void postProcess(FSTNode child) {
+
+		//TODO: is there a better way to do this?
+		if (child.getType().equals("AsmetaL-File")){
+			inAsmFile = true;
+		}
+		
+		if (child.getType().equals("Header") && inAsmFile){
+			((FSTNonTerminal)child).addChild(new FSTTerminal("ImportClause", "FM/FeatureModel", "import FM/FeatureModel", "","AsmetaLImportOverriding"),0);
+		}
 		if (child instanceof FSTNonTerminal) {
 			for (FSTNode node : ((FSTNonTerminal) child).getChildren()) {
 				postProcess(node);
@@ -234,6 +249,9 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 					break;
 				}
 			}
+		}
+		if (child.getType().equals("AsmetaL-File")){
+			inAsmFile = false;
 		}
 	}
 

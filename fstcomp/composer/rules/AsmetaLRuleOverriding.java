@@ -143,6 +143,7 @@ public class AsmetaLRuleOverriding extends AbstractCompositionRule {
     			//No Statement applied
     			if (subStatementsA == null || subStatementsB == null)
     			{
+    				System.out.println("no statement applied: subStatementsA: " + subStatementsA + "\n substatementsB: " + subStatementsB);
     				//THROW ERROR
     				return;
     			}

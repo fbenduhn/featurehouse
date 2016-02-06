@@ -6,9 +6,7 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 import cide.gparser.ParseException;
-
 import composer.FSTGenComposer;
-
 import de.ovgu.cide.fstgen.ast.AbstractFSTParser;
 import de.ovgu.cide.fstgen.ast.FSTFeatureNode;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
@@ -124,6 +122,7 @@ public abstract class ArtifactBuilder implements ArtifactBuilderInterface {
 				File.separator) < 0 ? 0 : this.getBaseDirectoryName()
 				.lastIndexOf(File.separator) + 1;
 		int endBaseDir = this.getBaseDirectoryName().length();
+		
 		String baseDir = this.getBaseDirectoryName().substring(beginBaseDir,
 				endBaseDir);
 

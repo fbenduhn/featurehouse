@@ -20,10 +20,10 @@ public class AsmetaLInvariantConjunctionMeta extends AsmetaLInvariantConjunction
 		
 		StringBuilder newBody = new StringBuilder(terminalComp.getBody());
 		
-		//TODO: replace "featureVar" with actual FeatureVar name
-		newBody.insert(indexColonComp + 1, "\n (featureVar implies (");
-		newBody.insert(indexColonComp, ", featureVar");
-		newBody.append(")) and (not(featureVar) implies ( " + invariantBodyB +"))");
+		String featureName = terminalA.getFeatureName().toLowerCase() + "__refinementVar__";
+		newBody.insert(indexColonComp + 1, "\n (" + featureName + " implies (");
+		newBody.insert(indexColonComp, ", " + featureName);
+		newBody.append(")) and (not(" + featureName + ") implies ( " + invariantBodyB +"))");
 		
 		terminalComp.setBody(newBody.toString());
 	}
