@@ -165,6 +165,7 @@ MORE:
 	| <NOTIN: "notin">
 	| <IFF: "iff">
 	| <CTLSPEC: "CTLSPEC">	
+	| <LTLSPEC: "LTLSPEC">	
 	}
 
 
@@ -243,6 +244,7 @@ ImportBody:
  "(" DomainOrFunctionOrRule ( "," DomainOrFunctionOrRule )* ")" 
 ;
 
+@FSTTerminal(name="{MOD_ID}", compose="AsmetaLImportOverriding")
 ImportClause:	
 	<IMPORT> 
 	MOD_ID 
@@ -340,7 +342,8 @@ DomainOrFunctionIDOrRuleList:
 	&LI DomainOrFunctionIDOrRule ( "," &LI DomainOrFunctionIDOrRule )*
 ;
 
-CTLSPECS: <CTLSPEC> Term;
+@FSTTerminal(name="{TOSTRING}", compose="AsmetaLCTLSPECSOverriding")
+CTLSPECS: <CTLSPEC> Term | <LTLSPEC> Term;
 
 InvariantRefinement:
 <FINALINVARIANT> <CONJUNCT> |

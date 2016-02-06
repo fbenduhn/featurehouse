@@ -165,6 +165,7 @@ MORE:
 	| <NOTIN: "notin">
 	| <IFF: "iff">
 	| <CTLSPEC: "CTLSPEC">	
+	| <LTLSPEC: "LTLSPEC">	
 	}
 
 
@@ -269,7 +270,7 @@ FSTInfo ImportBody(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo ImportClause(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<IMPORT> n=MOD_ID(true){ replaceName(n);} [n=ImportBody(true){ replaceName(n);}] {return productionEndTerminal("ImportClause","-","-","Replacement","Default",first,token);}
+	<IMPORT> n=MOD_ID(true){ replaceName("MOD_ID", n);}{ replaceName(n);} [n=ImportBody(true){ replaceName(n);}] {return productionEndTerminal("ImportClause","{MOD_ID}","{MOD_ID}","AsmetaLImportOverriding","Default",first,token);}
 
  )  }
 
@@ -421,7 +422,9 @@ FSTInfo DomainOrFunctionIDOrRuleList(boolean inTerminal) : { Token first=null,t;
 
 FSTInfo CTLSPECS(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<CTLSPEC> n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSPECS","-","-","Replacement","Default",first,token);}
+	<CTLSPEC> n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSPECS1","{TOSTRING}","{TOSTRING}","AsmetaLCTLSPECSOverriding","Default",first,token);}
+ |
+	<LTLSPEC> n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSPECS2","{TOSTRING}","{TOSTRING}","AsmetaLCTLSPECSOverriding","Default",first,token);}
 
  )  }
 

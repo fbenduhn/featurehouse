@@ -103,22 +103,23 @@ public interface AsmetaLParserConstants {
   int NOTIN = 106;
   int IFF = 107;
   int CTLSPEC = 108;
-  int NUMBER = 109;
-  int NATNUMBER = 110;
-  int REAL_NUMBER = 111;
-  int COMPLEX_NUMBER = 112;
-  int ID_VARIABLE = 113;
-  int ID_ENUM = 114;
-  int ID_DOMAIN = 115;
-  int ID_RULE = 116;
-  int ID_INVARIANT = 117;
-  int ID_FUNCTION = 118;
-  int LETTER = 119;
-  int DIGIT = 120;
-  int CHAR_LITERAL = 121;
-  int STRING_LITERAL = 122;
-  int ID = 123;
-  int MOD_ID = 124;
+  int LTLSPEC = 109;
+  int NUMBER = 110;
+  int NATNUMBER = 111;
+  int REAL_NUMBER = 112;
+  int COMPLEX_NUMBER = 113;
+  int ID_VARIABLE = 114;
+  int ID_ENUM = 115;
+  int ID_DOMAIN = 116;
+  int ID_RULE = 117;
+  int ID_INVARIANT = 118;
+  int ID_FUNCTION = 119;
+  int LETTER = 120;
+  int DIGIT = 121;
+  int CHAR_LITERAL = 122;
+  int STRING_LITERAL = 123;
+  int ID = 124;
+  int MOD_ID = 125;
 
   int DEFAULT = 0;
   int GENERIC_ID = 1;
@@ -237,6 +238,7 @@ public interface AsmetaLParserConstants {
     "\"notin\"",
     "\"iff\"",
     "\"CTLSPEC\"",
+    "\"LTLSPEC\"",
     "<NUMBER>",
     "<NATNUMBER>",
     "<REAL_NUMBER>",

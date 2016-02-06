@@ -503,6 +503,7 @@ rule r_ROBOTAgent=
 				r_Moving4  []
 			endseq
 
+	CTLSPEC ag(unloadtablecom implies unloadpresscomp)
 
              // run all the agents
 	invariant inv_abc  over tokens: hallo and @original
