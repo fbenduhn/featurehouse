@@ -19,7 +19,7 @@ public class AsmetaLFunctionOverridingMeta extends AsmetaLFunctionOverriding{
 		
 		StringBuilder newBody = new StringBuilder(terminalA.getBody());
 		
-		String featureName = terminalA.getFeatureName().toLowerCase() + "__refinementVar__";
+		String featureName = terminalA.getFeatureName().toLowerCase();
 		newBody.insert(indexEqualA + 1, "\n\t if " + featureName + " then");
 		newBody.append("\n\t else \n\t\t " + functionBodyB +"\n\t endif");
 		

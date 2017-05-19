@@ -1,4 +1,4 @@
-package de.ovgu.cide.fstgen.parsers.generated_AsmetaL;
+package de.ovgu.cide.fstgen.parsers.generated_AsmetaL_rules;
 
 import java.util.*;
 import cide.gast.*;
@@ -172,10 +172,157 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 			printFeatures(nonTerminal,false);
 			return false;
 		}
+		if (nonTerminal.getType().equals("MacroDeclaration")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "MacroDeclaration");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			hintNewLine();
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("TurboDeclaration")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "TurboDeclaration");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			hintNewLine();
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("MacroDeclaration")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "ID_RULE");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			{
+				FSTNode v=getChild(nonTerminal, "TermInDomainList");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printToken("=");
+			{
+				FSTNode v=getChild(nonTerminal, "Rule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
 		if (nonTerminal.getType().equals("Invariant")) {
 			printFeatures(nonTerminal,true);
 			{
 				FSTNode v=getChild(nonTerminal, "UnnamedInvariant");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule1")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "BasicRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule2")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "TurboRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule3")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "UpdateRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule4")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "TurboReturnRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule5")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "TermAsRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("Rule6")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "DerivedRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("DerivedRule1")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "BasicDerivedRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("DerivedRule2")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "TurboDerivedRule");
+				if (v!=null) {
+					v.accept(this);
+				}
+			}
+			printFeatures(nonTerminal,false);
+			return false;
+		}
+		if (nonTerminal.getType().equals("BasicDerivedRule")) {
+			printFeatures(nonTerminal,true);
+			{
+				FSTNode v=getChild(nonTerminal, "CaseRule");
 				if (v!=null) {
 					v.accept(this);
 				}
@@ -206,6 +353,7 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("CollectionTerm4") && expectedType.equals("CollectionTerm")) return true;
 		if (type.equals("VariableBindingTerm3") && expectedType.equals("VariableBindingTerm")) return true;
 		if (type.equals("BasicRule10") && expectedType.equals("BasicRule")) return true;
+		if (type.equals("MacroDeclaration") && expectedType.equals("RuleDeclaration")) return true;
 		if (type.equals("BooleanTerm2") && expectedType.equals("BooleanTerm")) return true;
 		if (type.equals("TermAsRule2") && expectedType.equals("TermAsRule")) return true;
 		if (type.equals("BasicRule8") && expectedType.equals("BasicRule")) return true;
@@ -314,6 +462,7 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("Rule1") && expectedType.equals("Rule")) return true;
 		if (type.equals("DynamicFunction5") && expectedType.equals("DynamicFunction")) return true;
 		if (type.equals("Term2") && expectedType.equals("Term")) return true;
+		if (type.equals("TurboDeclaration") && expectedType.equals("RuleDeclaration")) return true;
 		if (type.equals("StructuredTD1") && expectedType.equals("StructuredTD")) return true;
 		if (type.equals("ReladditiveExpr6") && expectedType.equals("ReladditiveExpr")) return true;
 		if (type.equals("BXB_BExpression1") && expectedType.equals("BXB_BExpression")) return true;

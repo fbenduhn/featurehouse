@@ -17,10 +17,11 @@ import builder.java.JavaBuilder;
 import builder.xml.XMLHook;
 import builder.xml.XMLNode;
 import composer.rules.AsmetaLFunctionOverriding;
-import composer.rules.AsmetaLImportOverriding;
+
 import composer.rules.AsmetaLInitializationConcatenation;
 import composer.rules.AsmetaLInvariantConjunction;
-import composer.rules.AsmetaLRuleOverriding;
+import composer.rules.AsmetaLRuleRefinement;
+import composer.rules.AsmetaLSwitchRefinement;
 import composer.rules.CSharpMethodOverriding;
 import composer.rules.CompositionError;
 import composer.rules.CompositionRule;
@@ -99,10 +100,11 @@ public class FSTGenComposer extends FSTGenProcessor {
 		compositionRules.add(new StringConcatenation());
 		compositionRules.add(new ImplementsListMerging());
 		compositionRules.add(new CSharpMethodOverriding());
-		compositionRules.add(new AsmetaLRuleOverriding());
+		compositionRules.add(new AsmetaLRuleRefinement());
 		compositionRules.add(new AsmetaLFunctionOverriding());
 		compositionRules.add(new AsmetaLInitializationConcatenation());
 		compositionRules.add(new AsmetaLInvariantConjunction());
+		compositionRules.add(new AsmetaLSwitchRefinement());
 		compositionRules.add(new ConstructorConcatenation());
 		compositionRules.add(new ModifierListSpecialization());
 		compositionRules.add(new FieldOverriding());

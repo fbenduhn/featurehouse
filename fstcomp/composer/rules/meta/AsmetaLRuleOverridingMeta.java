@@ -1,16 +1,17 @@
 package composer.rules.meta;
 
 
-import composer.rules.AsmetaLRuleOverriding;
+import composer.CompositionException;
+import composer.rules.AsmetaLRuleRefinement;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
 import de.ovgu.cide.fstgen.ast.FSTTerminal;
 
-public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
+public class AsmetaLRuleOverridingMeta extends AsmetaLRuleRefinement{
 
 	
 	@Override
 	public void compose(FSTTerminal terminalA, FSTTerminal terminalB,
-			FSTTerminal terminalComp, FSTNonTerminal nonterminalParent){
+			FSTTerminal terminalComp, FSTNonTerminal nonterminalParent) throws CompositionException{
 		
 
 		//Get names of both rules, by getting a substring of the rule body up to the first equality sign
@@ -36,7 +37,7 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 			
 			//since we don't know the name of the feature, we have refined(which will be in the name of the wrappee rule)
 			//we have to insert another "@original[]"-string, which will be replaced with the rule call later.
-			String featureName = terminalA.getFeatureName().toLowerCase() + "__refinementVar__";
+			String featureName = terminalA.getFeatureName().toLowerCase();
 			newBody.insert(indexEqualA + 1, "\n\t if " + featureName + " then");
 			newBody.append("\n\t else \n\t\t @original[]\n\t endif");
 			
@@ -47,7 +48,7 @@ public class AsmetaLRuleOverridingMeta extends AsmetaLRuleOverriding{
 			StringBuilder newBody = new StringBuilder(terminalA.getBody());
 			
 			//when we replace the original rule, no code repetition can occur, so we can just insert the whole body in the else tree 
-			String featureName = terminalA.getFeatureName().toLowerCase() + "__refinementVar__";
+			String featureName = terminalA.getFeatureName().toLowerCase();
 			newBody.insert(indexEqualA + 1, "\n\t if " + featureName + " then");
 			newBody.append("\n\t else \n\t\t " + ruleBodyB +"\n\t endif");
 			

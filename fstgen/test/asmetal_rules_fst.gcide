@@ -6,8 +6,8 @@ options {
 }
 
 
-PARSER_BEGIN(AsmetaLParser)
-package de.ovgu.cide.fstgen.parsers.generated_AsmetaL;
+PARSER_BEGIN(AsmetaLParser_rules)
+package de.ovgu.cide.fstgen.parsers.generated_AsmetaL_rules;
 
 import java.io.*;
 import java.util.*;
@@ -16,12 +16,12 @@ import cide.gparser.*;
 import de.ovgu.cide.fstgen.ast.*;
 
 
-public class AsmetaLParser extends AbstractFSTParser
+public class AsmetaLParser_rules extends AbstractFSTParser
 {
- 	public AsmetaLParser(){}
+ 	public AsmetaLParser_rules(){}
 }
 
-PARSER_END(AsmetaLParser)
+PARSER_END(AsmetaLParser_rules)
 
 <DEFAULT,GENERIC_ID,MODULE_ID> SPECIAL_TOKEN :
 {
@@ -217,7 +217,7 @@ Initializations:
 
 MainCommand: <MAIN>;
 
-@FSTTerminal(name="{MacroDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
+@FSTTerminal(name="{MacroDeclaration}",type="RuleDeclaration")
 MainMacroDeclaration: MainCommand MacroDeclaration @!;
 
 @FSTNonTerminal("{ModuleDeclaration}")
@@ -309,12 +309,12 @@ FunctionDefinition:
 
 
 RuleDeclaration: 
-@FSTTerminal(name="{MacroDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
+@FSTNonTerminal(name="{MacroDeclaration}",type="MacroDeclaration", compose="AsmetaLRuleOverriding")
 	[<FINALRULE>] MacroDeclaration @! | 
-@FSTTerminal(name="{TurboDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
+@FSTNonTerminal(name="{TurboDeclaration}",type="TurboDeclaration", compose="AsmetaLRuleOverriding")
 	[<FINALRULE>] TurboDeclaration @!;
 
-@FSTExportName("{ID_RULE}")
+@FSTNonTerminal(name="Macy")
 MacroDeclaration:	
 	( <MACRO> )? <RULE> ID_RULE [TermInDomainList] "=" Rule
 ;
@@ -486,6 +486,7 @@ MonitoredFunction:	( <DYNAMIC> )? <MONITORED> ID_FUNCTION ":" ( getDomainByID "-
 @FSTExportName("out {ID_FUNCTION}")
 OutFunction:	( <DYNAMIC> )? <OUT> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
+@FSTExportName("{TOSTRING}")
 Term: Expression | ExtendedTerm;
 
 Expression:
@@ -571,6 +572,7 @@ CaseTermTerm: <CASE> Term ":" Term ;
 
 OtherwiseTerm: <OTHERWISE> Term;
 
+@FSTTerminal(name="{Term}", compose="AsmetaLSwitchRefinement")
 CaseTerm:	
 	<SWITCH> Term (CaseTermTerm )+ ( OtherwiseTerm )? <END_SWITCH>
 ;
@@ -648,19 +650,19 @@ RuleAsTerm:	"<<" ID_RULE ( "(" getDomainByIDList ")" )? ">>";
 LocationOrVariableTerm: LocationTerm | VariableTerm;
 ElseRule: <ELSE> Rule;
 IfNoneRule: <IFNONE> Rule;
-
+@FSTNonTerminal(name="212")
 Rule:	 
-@FSTTerminal(name="{Rule}")
+
 	BasicRule | 
-@FSTTerminal(name="{Rule}")
+
 	TurboRule | 
-@FSTTerminal(name="{Rule}")
+
 	UpdateRule | 
-@FSTTerminal(name="{Rule}")
+
 	TurboReturnRule | 
-@FSTTerminal(name="{Rule}")
+
 	TermAsRule | 
-@FSTTerminal(name="{Rule}")
+
 	DerivedRule	 
 ;	
 
@@ -687,13 +689,15 @@ Rule:
 			LocalFunctionRule: LocalFunction "[" Rule "]";
 
 	UpdateRule:	LocationOrVariableTerm ":=" Term;
-
 	TurboReturnRule:	 LocationOrVariableTerm  "<-" TurboCallRule;
 
 	TermAsRule:	 FunctionTerm | VariableTerm ;
-	
+	@FSTNonTerminal()
 	DerivedRule:	 BasicDerivedRule | TurboDerivedRule;
-		BasicDerivedRule:	CaseRule;
+	@FSTNonTerminal()
+	BasicDerivedRule:	CaseRule;
+	
+		@FSTTerminal(name="{Term}", compose = "AsmetaLSwitchRefinement")
 			CaseRule:	<SWITCH> Term ( CaseTermRule )+ [OtherwiseRule] <END_SWITCH>;
 		TurboDerivedRule:	 RecursiveWhileRule | IterativeWhileRule ;		
 			RecursiveWhileRule:	<WHILEREC> Term <DO> Rule;

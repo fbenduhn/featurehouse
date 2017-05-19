@@ -7,14 +7,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import printer.PrintVisitorException;
 import builder.ArtifactBuilderInterface;
 import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
-import composer.rules.AsmetaLCTLSPECSOverriding;
-import composer.rules.AsmetaLImportOverriding;
-import composer.rules.AsmetaLInitializationConcatenation;
-import composer.rules.AsmetaLRuleOverriding;
 import composer.rules.CSharpMethodOverriding;
 import composer.rules.CompositionError;
 import composer.rules.CompositionRule;
@@ -23,10 +18,9 @@ import composer.rules.ImplementsListMerging;
 import composer.rules.ModifierListSpecialization;
 import composer.rules.Replacement;
 import composer.rules.StringConcatenation;
-import composer.rules.meta.AsmetaLInitializationConcatenationMeta;
-import composer.rules.meta.AsmetaLRuleOverridingMeta;
 import composer.rules.meta.AsmetaLFunctionOverridingMeta;
 import composer.rules.meta.AsmetaLInvariantConjunctionMeta;
+import composer.rules.meta.AsmetaLRuleOverridingMeta;
 import composer.rules.meta.ConstructorConcatenationMeta;
 import composer.rules.meta.ContractCompositionMeta;
 import composer.rules.meta.FeatureModelInfo;
@@ -45,6 +39,7 @@ import de.ovgu.cide.fstgen.ast.AbstractFSTParser;
 import de.ovgu.cide.fstgen.ast.FSTNode;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
 import de.ovgu.cide.fstgen.ast.FSTTerminal;
+import printer.PrintVisitorException;
 
 public class FSTGenComposerExtension extends FSTGenComposer {
 	
@@ -113,9 +108,7 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new AsmetaLRuleOverridingMeta());
 		compositionRules.add(new AsmetaLFunctionOverridingMeta());
 		compositionRules.add(new AsmetaLInvariantConjunctionMeta());
-		compositionRules.add(new AsmetaLInitializationConcatenationMeta());
-		compositionRules.add(new AsmetaLImportOverriding());
-		compositionRules.add(new AsmetaLCTLSPECSOverriding());
+
 		
 		try {
 			try {
@@ -236,7 +229,7 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		}
 		
 		if (child.getType().equals("Header") && inAsmFile){
-			((FSTNonTerminal)child).addChild(new FSTTerminal("ImportClause", "FM/FeatureModel", "import FM/FeatureModel", "","AsmetaLImportOverriding"),0);
+			((FSTNonTerminal)child).addChild(new FSTTerminal("ImportClause", "FM/FeatureModel", "import ../FM/FeatureModel", "","AsmetaLImportOverriding"),0);
 		}
 		if (child instanceof FSTNonTerminal) {
 			for (FSTNode node : ((FSTNonTerminal) child).getChildren()) {

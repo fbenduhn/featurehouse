@@ -6,8 +6,8 @@ options {
 }
 
 
-PARSER_BEGIN(AsmetaLParser)
-package de.ovgu.cide.fstgen.parsers.generated_AsmetaL;
+PARSER_BEGIN(AsmetaLParser_rules)
+package de.ovgu.cide.fstgen.parsers.generated_AsmetaL_rules;
 
 import java.io.*;
 import java.util.*;
@@ -16,12 +16,12 @@ import cide.gparser.*;
 import de.ovgu.cide.fstgen.ast.*;
 
 
-public class AsmetaLParser extends AbstractFSTParser
+public class AsmetaLParser_rules extends AbstractFSTParser
 {
- 	public AsmetaLParser(){}
+ 	public AsmetaLParser_rules(){}
 }
 
-PARSER_END(AsmetaLParser)
+PARSER_END(AsmetaLParser_rules)
 
 <DEFAULT,GENERIC_ID,MODULE_ID> SPECIAL_TOKEN :
 {
@@ -230,7 +230,7 @@ FSTInfo MainCommand(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo MainMacroDeclaration(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=MainCommand(true){ replaceName(n);} n=MacroDeclaration(true){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{MacroDeclaration}","{MacroDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
+	n=MainCommand(true){ replaceName(n);} n=MacroDeclaration(true){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{MacroDeclaration}","{MacroDeclaration}","Replacement","Default",first,token);}
 
  )  }
 
@@ -374,15 +374,15 @@ FSTInfo FunctionDefinition(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo RuleDeclaration(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	[<FINALRULE>] n=MacroDeclaration(true){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{MacroDeclaration}","{MacroDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
+	[<FINALRULE>] n=MacroDeclaration(inTerminal){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndNonTerminal("MacroDeclaration","{MacroDeclaration}","{MacroDeclaration}");}
  |
-	[<FINALRULE>] n=TurboDeclaration(true){ replaceName("TurboDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{TurboDeclaration}","{TurboDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
+	[<FINALRULE>] n=TurboDeclaration(inTerminal){ replaceName("TurboDeclaration", n);}{ replaceName(n);} {return productionEndNonTerminal("TurboDeclaration","{TurboDeclaration}","{TurboDeclaration}");}
 
  )  }
 
 FSTInfo MacroDeclaration(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	[<MACRO>] <RULE> n=ID_RULE(true){ replaceName("ID_RULE", n);}{ replaceName(n);} [n=TermInDomainList(true){ replaceName(n);}] "=" n=Rule(true){ replaceName(n);} {return productionEndTerminal("MacroDeclaration","-","{ID_RULE}","Replacement","Default",first,token);}
+	[<MACRO>] <RULE> n=ID_RULE(inTerminal){ replaceName(n);} [n=TermInDomainList(inTerminal){ replaceName(n);}] "=" n=Rule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("MacroDeclaration","Macy","Macy");}
 
  )  }
 
@@ -644,9 +644,9 @@ FSTInfo OutFunction(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Term(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=Expression(true){ replaceName(n);} {return productionEndTerminal("Term1","-","-","Replacement","Default",first,token);}
+	n=Expression(true){ replaceName(n);} {return productionEndTerminal("Term1","-","{TOSTRING}","Replacement","Default",first,token);}
  |
-	n=ExtendedTerm(true){ replaceName(n);} {return productionEndTerminal("Term2","-","-","Replacement","Default",first,token);}
+	n=ExtendedTerm(true){ replaceName(n);} {return productionEndTerminal("Term2","-","{TOSTRING}","Replacement","Default",first,token);}
 
  )  }
 
@@ -996,7 +996,7 @@ FSTInfo OtherwiseTerm(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo CaseTerm(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<SWITCH> n=Term(true){ replaceName(n);} (n=CaseTermTerm(true){ replaceName(n);})+ [n=OtherwiseTerm(true){ replaceName(n);}] <END_SWITCH> {return productionEndTerminal("CaseTerm","-","-","Replacement","Default",first,token);}
+	<SWITCH> n=Term(true){ replaceName("Term", n);}{ replaceName(n);} (n=CaseTermTerm(true){ replaceName(n);})+ [n=OtherwiseTerm(true){ replaceName(n);}] <END_SWITCH> {return productionEndTerminal("CaseTerm","{Term}","{Term}","AsmetaLSwitchRefinement","Default",first,token);}
 
  )  }
 
@@ -1216,17 +1216,17 @@ FSTInfo IfNoneRule(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Rule(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=BasicRule(true){ replaceName(n);} {return productionEndTerminal("Rule1","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=BasicRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule1","212","212");}
  |
-	n=TurboRule(true){ replaceName(n);} {return productionEndTerminal("Rule2","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=TurboRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule2","212","212");}
  |
-	n=UpdateRule(true){ replaceName(n);} {return productionEndTerminal("Rule3","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=UpdateRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule3","212","212");}
  |
-	n=TurboReturnRule(true){ replaceName(n);} {return productionEndTerminal("Rule4","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=TurboReturnRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule4","212","212");}
  |
-	n=TermAsRule(true){ replaceName(n);} {return productionEndTerminal("Rule5","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=TermAsRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule5","212","212");}
  |
-	n=DerivedRule(true){ replaceName(n);} {return productionEndTerminal("Rule6","{Rule}","{Rule}","Replacement","Default",first,token);}
+	n=DerivedRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Rule6","212","212");}
 
  )  }
 
@@ -1380,21 +1380,21 @@ FSTInfo TermAsRule(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo DerivedRule(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=BasicDerivedRule(true){ replaceName(n);} {return productionEndTerminal("DerivedRule1","-","-","Replacement","Default",first,token);}
+	n=BasicDerivedRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("DerivedRule1","-","-");}
  |
-	n=TurboDerivedRule(true){ replaceName(n);} {return productionEndTerminal("DerivedRule2","-","-","Replacement","Default",first,token);}
+	n=TurboDerivedRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("DerivedRule2","-","-");}
 
  )  }
 
 FSTInfo BasicDerivedRule(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=CaseRule(true){ replaceName(n);} {return productionEndTerminal("BasicDerivedRule","-","-","Replacement","Default",first,token);}
+	n=CaseRule(inTerminal){ replaceName(n);} {return productionEndNonTerminal("BasicDerivedRule","-","-");}
 
  )  }
 
 FSTInfo CaseRule(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<SWITCH> n=Term(true){ replaceName(n);} (n=CaseTermRule(true){ replaceName(n);})+ [n=OtherwiseRule(true){ replaceName(n);}] <END_SWITCH> {return productionEndTerminal("CaseRule","-","-","Replacement","Default",first,token);}
+	<SWITCH> n=Term(true){ replaceName("Term", n);}{ replaceName(n);} (n=CaseTermRule(true){ replaceName(n);})+ [n=OtherwiseRule(true){ replaceName(n);}] <END_SWITCH> {return productionEndTerminal("CaseRule","{Term}","{Term}","AsmetaLSwitchRefinement","Default",first,token);}
 
  )  }
 
