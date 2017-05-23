@@ -516,7 +516,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
       n = Invariant(inTerminal);
                                                                                                                                                                                                                                                                                               replaceName(n);
     }
-                                                                                                                                                                                                                                                                                                                  {if (true) return productionEndNonTerminal("Body","Body","Body");}
+                                                                                                                                                                                                                                                                                                                  {if (true) return productionEndNonTerminal("Body","-","-");}
     throw new Error("Missing return statement in function");
   }
 
@@ -1150,7 +1150,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                    replaceName(n);
-                                                                                                                                                                                     {if (true) return productionEndTerminal("DerivedFunction","-","derived {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                     {if (true) return productionEndTerminal("DerivedFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1171,7 +1171,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                   replaceName(n);
-                                                                                                                                                                                    {if (true) return productionEndTerminal("StaticFunction","-","static {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                    {if (true) return productionEndTerminal("StaticFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1232,7 +1232,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                              replaceName(n);
-                                                                                                                                                                                               {if (true) return productionEndTerminal("LocalFunction","-","local {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                               {if (true) return productionEndTerminal("LocalFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1258,7 +1258,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                                   replaceName(n);
-                                                                                                                                                                                                    {if (true) return productionEndTerminal("ControlledFunction","-","controlled {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                                    {if (true) return productionEndTerminal("ControlledFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1284,7 +1284,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                               replaceName(n);
-                                                                                                                                                                                                {if (true) return productionEndTerminal("SharedFunction","-","shared {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                                {if (true) return productionEndTerminal("SharedFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1310,7 +1310,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                                  replaceName(n);
-                                                                                                                                                                                                   {if (true) return productionEndTerminal("MonitoredFunction","-","monitored {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                                   {if (true) return productionEndTerminal("MonitoredFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 
@@ -1336,7 +1336,7 @@ public class AsmetaLParser extends AbstractFSTParser implements AsmetaLParserCon
     }
     n = getDomainByID(true);
                                                                                                                                                                            replaceName(n);
-                                                                                                                                                                                             {if (true) return productionEndTerminal("OutFunction","-","out {ID_FUNCTION}","Replacement","Default",first,token);}
+                                                                                                                                                                                             {if (true) return productionEndTerminal("OutFunction","-","{ID_FUNCTION}","Replacement","Default",first,token);}
     throw new Error("Missing return statement in function");
   }
 

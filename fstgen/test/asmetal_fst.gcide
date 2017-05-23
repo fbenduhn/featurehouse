@@ -296,7 +296,7 @@ AgentInitialization:	<AGENT> ID_DOMAIN ":" MacroCallRule @!;
 @FSTTerminal(name="{DefinitionsCommand}")
 DefinitionsCommand: <DEFINITIONS> ":";
 
-@FSTNonTerminal(name="Body")
+@FSTNonTerminal()
 Body:	DefinitionsCommand ( DomainDefinition )* ( FunctionDefinition )* ( RuleDeclaration )* (CTLSPECS)* ( Invariant )*;
 
 @FSTTerminal(name="{ID_DOMAIN}")
@@ -452,10 +452,10 @@ BasicFunction:
 @FSTExportName("{DynamicFunction}")
 	DynamicFunction;
 
-@FSTExportName("derived {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 DerivedFunction:	<DERIVED> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
-@FSTExportName("static {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 StaticFunction:	<STATIC> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
 
@@ -471,19 +471,19 @@ ControlledFunction |
 @FSTExportName("{LocalFunction}")
 LocalFunction ;
 
-@FSTExportName("local {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 LocalFunction:	( <DYNAMIC> )? <LOCAL> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
-@FSTExportName("controlled {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 ControlledFunction:	( <DYNAMIC> )? <CONTROLLED> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
-@FSTExportName("shared {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 SharedFunction:	( <DYNAMIC> )? <SHARED> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
-@FSTExportName("monitored {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 MonitoredFunction:	( <DYNAMIC> )? <MONITORED> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
-@FSTExportName("out {ID_FUNCTION}")
+@FSTExportName("{ID_FUNCTION}")
 OutFunction:	( <DYNAMIC> )? <OUT> ID_FUNCTION ":" ( getDomainByID "->" )? getDomainByID;
 
 Term: Expression | ExtendedTerm;

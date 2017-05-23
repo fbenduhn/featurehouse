@@ -11,6 +11,7 @@ public class AsmetaLSwitchRefinement extends AbstractCompositionRule
     public void compose(FSTTerminal terminalA, FSTTerminal terminalB,
 	    FSTTerminal terminalComp, FSTNonTerminal nonterminalParent) 
     {    	
+    	System.out.println("Switch Refinement applied!!!");
  	terminalComp.setBody("Switch Refinement applied!");
     }
     
