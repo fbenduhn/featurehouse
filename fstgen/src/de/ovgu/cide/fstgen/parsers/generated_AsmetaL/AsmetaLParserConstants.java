@@ -9,117 +9,121 @@ public interface AsmetaLParserConstants {
   int MULTI_LINE_COMMENT = 11;
   int ASM = 13;
   int MODULE = 14;
-  int ORIGINAL = 15;
-  int FINALRULE = 16;
-  int FINALINVARIANT = 17;
-  int CONJUNCT = 18;
-  int ASYNCR = 19;
-  int IMPORT = 20;
-  int EXPORT = 21;
-  int SIGNATURE = 22;
-  int INIT = 23;
-  int Default = 24;
-  int AGENT = 25;
-  int INVARIANT = 26;
-  int OVER = 27;
-  int DEFINITIONS = 28;
-  int FUNCTION = 29;
-  int STATIC = 30;
-  int DYNAMIC = 31;
-  int DERIVED = 32;
-  int MONITORED = 33;
-  int CONTROLLED = 34;
-  int SHARED = 35;
-  int OUT = 36;
-  int DOMAIN = 37;
-  int ANYDOMAIN = 38;
-  int BASIC = 39;
-  int ABSTRACT = 40;
-  int ENUM = 41;
-  int SUBSETOF = 42;
-  int PROD = 43;
-  int SEQ = 44;
-  int POWERSET = 45;
-  int BAG = 46;
-  int MAP = 47;
-  int RULEDOM = 48;
-  int TRUE = 49;
-  int FALSE = 50;
-  int UNDEF = 51;
-  int IM_PART = 52;
-  int IF = 53;
-  int THEN = 54;
-  int ELSE = 55;
-  int ENDIF = 56;
-  int SWITCH = 57;
-  int END_SWITCH = 58;
-  int CASE = 59;
-  int OTHERWISE = 60;
-  int ENDCASE = 61;
-  int LET = 62;
-  int ENDLET = 63;
-  int EXIST = 64;
-  int UNIQUE = 65;
-  int WITH = 66;
-  int FORALL = 67;
-  int Skip = 68;
-  int RULE = 69;
-  int MACRO = 70;
-  int TURBO = 71;
-  int MAIN = 72;
-  int PAR = 73;
-  int ENDPAR = 74;
-  int CHOOSE = 75;
-  int DO = 76;
-  int IFNONE = 77;
-  int EXTEND = 78;
-  int seq = 79;
-  int ENDSEQ = 80;
-  int ITERATE = 81;
-  int ENDITERATE = 82;
-  int LOCAL = 83;
-  int TRY = 84;
-  int CATCH = 85;
-  int WHILE = 86;
-  int WHILEREC = 87;
-  int IN = 88;
-  int EQ = 89;
-  int LT = 90;
-  int LE = 91;
-  int GT = 92;
-  int GE = 93;
-  int NEQ = 94;
-  int PLUS = 95;
-  int MINUS = 96;
-  int MULT = 97;
-  int DIV = 98;
-  int PWR = 99;
-  int AND = 100;
-  int NOT = 101;
-  int OR = 102;
-  int XOR = 103;
-  int IMPLIES = 104;
-  int MOD = 105;
-  int NOTIN = 106;
-  int IFF = 107;
-  int CTLSPEC = 108;
-  int LTLSPEC = 109;
-  int NUMBER = 110;
-  int NATNUMBER = 111;
-  int REAL_NUMBER = 112;
-  int COMPLEX_NUMBER = 113;
-  int ID_VARIABLE = 114;
-  int ID_ENUM = 115;
-  int ID_DOMAIN = 116;
-  int ID_RULE = 117;
-  int ID_INVARIANT = 118;
-  int ID_FUNCTION = 119;
-  int LETTER = 120;
-  int DIGIT = 121;
-  int CHAR_LITERAL = 122;
-  int STRING_LITERAL = 123;
-  int ID = 124;
-  int MOD_ID = 125;
+  int ASYNCR = 15;
+  int IMPORT = 16;
+  int EXPORT = 17;
+  int SIGNATURE = 18;
+  int INIT = 19;
+  int Default = 20;
+  int AGENT = 21;
+  int INVARIANT = 22;
+  int CTLSpec = 23;
+  int NAME = 24;
+  int LTLSpec = 25;
+  int JUSTICE = 26;
+  int FAIRNESS = 27;
+  int COMPASSION = 28;
+  int INVAR = 29;
+  int OVER = 30;
+  int DEFINITIONS = 31;
+  int FUNCTION = 32;
+  int STATIC = 33;
+  int DYNAMIC = 34;
+  int DERIVED = 35;
+  int MONITORED = 36;
+  int CONTROLLED = 37;
+  int SHARED = 38;
+  int OUT = 39;
+  int DOMAIN = 40;
+  int ANYDOMAIN = 41;
+  int BASIC = 42;
+  int ABSTRACT = 43;
+  int ENUM = 44;
+  int SUBSETOF = 45;
+  int PROD = 46;
+  int SEQ = 47;
+  int POWERSET = 48;
+  int BAG = 49;
+  int MAP = 50;
+  int RULEDOM = 51;
+  int TRUE = 52;
+  int FALSE = 53;
+  int UNDEF = 54;
+  int IM_PART = 55;
+  int IF = 56;
+  int THEN = 57;
+  int ELSE = 58;
+  int ENDIF = 59;
+  int SWITCH = 60;
+  int END_SWITCH = 61;
+  int CASE = 62;
+  int OTHERWISE = 63;
+  int ENDCASE = 64;
+  int LET = 65;
+  int ENDLET = 66;
+  int EXIST = 67;
+  int UNIQUE = 68;
+  int WITH = 69;
+  int FORALL = 70;
+  int Skip = 71;
+  int RULE = 72;
+  int MACRO = 73;
+  int TURBO = 74;
+  int MAIN = 75;
+  int PAR = 76;
+  int ENDPAR = 77;
+  int CHOOSE = 78;
+  int DO = 79;
+  int IFNONE = 80;
+  int EXTEND = 81;
+  int seq = 82;
+  int ENDSEQ = 83;
+  int ITERATE = 84;
+  int ENDITERATE = 85;
+  int LOCAL = 86;
+  int TRY = 87;
+  int CATCH = 88;
+  int WHILE = 89;
+  int WHILEREC = 90;
+  int IN = 91;
+  int EQ = 92;
+  int LT = 93;
+  int LE = 94;
+  int GT = 95;
+  int GE = 96;
+  int NEQ = 97;
+  int PLUS = 98;
+  int MINUS = 99;
+  int MULT = 100;
+  int DIV = 101;
+  int PWR = 102;
+  int NOTIN = 103;
+  int IFF = 104;
+  int AND = 105;
+  int NOT = 106;
+  int OR = 107;
+  int XOR = 108;
+  int IMPLIES = 109;
+  int MOD = 110;
+  int ORIGINAL = 111;
+  int NUMBER = 112;
+  int NATNUMBER = 113;
+  int REAL_NUMBER = 114;
+  int COMPLEX_NUMBER = 115;
+  int ID_VARIABLE = 116;
+  int ID_ENUM = 117;
+  int ID_DOMAIN = 118;
+  int ID_RULE = 119;
+  int ID_AXIOM = 120;
+  int ID_CTL = 121;
+  int ID_LTL = 122;
+  int ID_FUNCTION = 123;
+  int LETTER = 124;
+  int DIGIT = 125;
+  int CHAR_LITERAL = 126;
+  int STRING_LITERAL = 127;
+  int ID = 128;
+  int MOD_ID = 129;
 
   int DEFAULT = 0;
   int GENERIC_ID = 1;
@@ -144,10 +148,6 @@ public interface AsmetaLParserConstants {
     "<token of kind 12>",
     "\"asm\"",
     "\"module\"",
-    "\"@original\"",
-    "\"@final_rule\"",
-    "\"@final_invariant\"",
-    "\"@conjunct\"",
     "\"asyncr\"",
     "\"import\"",
     "\"export\"",
@@ -156,6 +156,13 @@ public interface AsmetaLParserConstants {
     "\"default\"",
     "\"agent\"",
     "\"invariant\"",
+    "\"CTLSPEC\"",
+    "\"NAME\"",
+    "\"LTLSPEC\"",
+    "\"JUSTICE\"",
+    "\"FAIRNESS\"",
+    "\"COMPASSION\"",
+    "\"INVAR\"",
     "\"over\"",
     "\"definitions\"",
     "\"function\"",
@@ -229,16 +236,15 @@ public interface AsmetaLParserConstants {
     "\"*\"",
     "\"/\"",
     "\"^\"",
+    "\"notin\"",
+    "\"iff\"",
     "\"and\"",
     "\"not\"",
     "\"or\"",
     "\"xor\"",
     "\"implies\"",
     "\"mod\"",
-    "\"notin\"",
-    "\"iff\"",
-    "\"CTLSPEC\"",
-    "\"LTLSPEC\"",
+    "\"@original\"",
     "<NUMBER>",
     "<NATNUMBER>",
     "<REAL_NUMBER>",
@@ -247,7 +253,9 @@ public interface AsmetaLParserConstants {
     "<ID_ENUM>",
     "<ID_DOMAIN>",
     "<ID_RULE>",
-    "<ID_INVARIANT>",
+    "<ID_AXIOM>",
+    "<ID_CTL>",
+    "<ID_LTL>",
     "<ID_FUNCTION>",
     "<LETTER>",
     "<DIGIT>",

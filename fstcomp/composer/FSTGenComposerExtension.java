@@ -10,6 +10,7 @@ import java.util.List;
 import builder.ArtifactBuilderInterface;
 import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
+import composer.rules.AsmetaLInitializationConcatenation;
 import composer.rules.CSharpMethodOverriding;
 import composer.rules.CompositionError;
 import composer.rules.CompositionRule;
@@ -105,10 +106,11 @@ public class FSTGenComposerExtension extends FSTGenComposer {
 		compositionRules.add(new FieldOverridingMeta());
 		compositionRules.add(new ExpansionOverriding());
 		compositionRules.add(new CompositionError());
+		compositionRules.add(new AsmetaLInitializationConcatenation());
 		compositionRules.add(new AsmetaLRuleOverridingMeta());
 		compositionRules.add(new AsmetaLFunctionOverridingMeta());
 		compositionRules.add(new AsmetaLInvariantConjunctionMeta());
-
+		
 		
 		try {
 			try {

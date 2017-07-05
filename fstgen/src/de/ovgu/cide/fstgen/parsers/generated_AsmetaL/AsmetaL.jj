@@ -69,104 +69,106 @@ MORE:
 /* RESERVED WORDS AND LITERALS */
 
 <DEFAULT> TOKEN : {
-	  <ASM: "asm"> : GENERIC_ID
-	| <MODULE: "module"> : GENERIC_ID
-	| <ORIGINAL: "@original">
-	| <FINALRULE: "@final_rule">
-	| <FINALINVARIANT: "@final_invariant">
-	| <CONJUNCT: "@conjunct">
-	| <ASYNCR: "asyncr">
-	| <IMPORT: "import"> : MODULE_ID
-	| <EXPORT: "export">
-	| <SIGNATURE: "signature">
-	| <INIT: "init"> : GENERIC_ID
-	| <Default: "default">
-	| <AGENT: "agent">
-	| <INVARIANT: "invariant">
-	| <OVER: "over">
-	| <DEFINITIONS: "definitions">
-	| <FUNCTION: "function">
-	| <STATIC: "static">
-	| <DYNAMIC: "dynamic">
-	| <DERIVED: "derived">
-	| <MONITORED: "monitored">
-	| <CONTROLLED: "controlled">
-	| <SHARED: "shared">
-	| <OUT: "out">
-	| <DOMAIN: "domain">
-	| <ANYDOMAIN: "anydomain">
-	| <BASIC: "basic">
-	| <ABSTRACT: "abstract">
-	| <ENUM: "enum">
-	| <SUBSETOF: "subsetof">
-	| <PROD: "Prod">
-	| <SEQ: "Seq">
-	| <POWERSET: "Powerset">
-	| <BAG: "Bag">
-	| <MAP: "Map">
-	| <RULEDOM: "Rule">
-	| <TRUE: "true">
-	| <FALSE: "false">
-	| <UNDEF: "undef">
-	| <IM_PART: "i">
-	| <IF: "if">
-	| <THEN: "then">
-	| <ELSE: "else">
-	| <ENDIF: "endif">
-	| <SWITCH: "switch">
-	| <END_SWITCH: "endswitch">
-	| <CASE: "case">
-	| <OTHERWISE: "otherwise">
-	| <ENDCASE: "endcase">
-	| <LET: "let">
-	| <ENDLET: "endlet">
-	| <EXIST: "exist">
-	| <UNIQUE: "unique">
-	| <WITH: "with">
-	| <FORALL: "forall">
-	| <Skip: "skip">
-	| <RULE: "rule">
-	| <MACRO: "macro">
-	| <TURBO: "turbo">
-	| <MAIN: "main">
-	| <PAR: "par">
-	| <ENDPAR: "endpar">
-	| <CHOOSE: "choose">
-	| <DO: "do">
-	| <IFNONE: "ifnone">
-	| <EXTEND: "extend">
-	| <seq: "seq">
-	| <ENDSEQ: "endseq">
-	| <ITERATE: "iterate">
-	| <ENDITERATE: "enditerate">
-	| <LOCAL: "local">
-	| <TRY: "try">
-	| <CATCH: "catch">
-	| <WHILE: "while">
-	| <WHILEREC: "whilerec">
-	| <IN: "in">
-	| <EQ: "=">
-	| <LT: "<">
-	| <LE: "<=">
-	| <GT: ">">
-	| <GE: ">=">
-	| <NEQ: "!=">
-	| <PLUS: "+">
-	| <MINUS: "-">
-	| <MULT: "*">
-	| <DIV: "/">
-	| <PWR: "^">
-	| <AND: "and">
-	| <NOT: "not">
-	| <OR: "or">
-	| <XOR: "xor">
-	| <IMPLIES: "implies">
-	| <MOD: "mod">
-	| <NOTIN: "notin">
-	| <IFF: "iff">
-	| <CTLSPEC: "CTLSPEC">	
-	| <LTLSPEC: "LTLSPEC">	
-	}
+<ASM: "asm"> : GENERIC_ID
+| <MODULE: "module"> : GENERIC_ID
+| <ASYNCR: "asyncr">
+| <IMPORT: "import"> : MODULE_ID
+| <EXPORT: "export">
+| <SIGNATURE: "signature">
+| <INIT: "init"> : GENERIC_ID
+| <Default: "default">
+| <AGENT: "agent">
+| <INVARIANT: "invariant">
+| <CTLSpec: "CTLSPEC">
+| <NAME: "NAME">
+| <LTLSpec: "LTLSPEC">
+| <JUSTICE: "JUSTICE">
+| <FAIRNESS: "FAIRNESS">
+| <COMPASSION: "COMPASSION">
+| <INVAR: "INVAR">
+| <OVER: "over">
+| <DEFINITIONS: "definitions">
+| <FUNCTION: "function">
+| <STATIC: "static">
+| <DYNAMIC: "dynamic">
+| <DERIVED: "derived">
+| <MONITORED: "monitored">
+| <CONTROLLED: "controlled">
+| <SHARED: "shared">
+| <OUT: "out">
+| <DOMAIN: "domain">
+| <ANYDOMAIN: "anydomain">
+| <BASIC: "basic">
+| <ABSTRACT: "abstract">
+| <ENUM: "enum">
+| <SUBSETOF: "subsetof">
+| <PROD: "Prod">
+| <SEQ: "Seq">
+| <POWERSET: "Powerset">
+| <BAG: "Bag">
+| <MAP: "Map">
+| <RULEDOM: "Rule">
+| <TRUE: "true">
+| <FALSE: "false">
+| <UNDEF: "undef">
+| <IM_PART: "i">
+| <IF: "if">
+| <THEN: "then">
+| <ELSE: "else">
+| <ENDIF: "endif">
+| <SWITCH: "switch">
+| <END_SWITCH: "endswitch">
+| <CASE: "case">
+| <OTHERWISE: "otherwise">
+| <ENDCASE: "endcase">
+| <LET: "let">
+| <ENDLET: "endlet">
+| <EXIST: "exist">
+| <UNIQUE: "unique">
+| <WITH: "with">
+| <FORALL: "forall">
+| <Skip: "skip">
+| <RULE: "rule">
+| <MACRO: "macro">
+| <TURBO: "turbo">
+| <MAIN: "main">
+| <PAR: "par">
+| <ENDPAR: "endpar">
+| <CHOOSE: "choose">
+| <DO: "do">
+| <IFNONE: "ifnone">
+| <EXTEND: "extend">
+| <seq: "seq">
+| <ENDSEQ: "endseq">
+| <ITERATE: "iterate">
+| <ENDITERATE: "enditerate">
+| <LOCAL: "local">
+| <TRY: "try">
+| <CATCH: "catch">
+| <WHILE: "while">
+| <WHILEREC: "whilerec">
+| <IN: "in">
+| <EQ: "=">
+| <LT: "<">
+| <LE: "<=">
+| <GT: ">">
+| <GE: ">=">
+| <NEQ: "!=">
+| <PLUS: "+">
+| <MINUS: "-">
+| <MULT: "*">
+| <DIV: "/">
+| <PWR: "^">
+| <NOTIN: "notin">
+| <IFF: "iff">
+| <AND: "and">
+| <NOT: "not">
+| <OR: "or">
+| <XOR: "xor">
+| <IMPLIES: "implies">
+| <MOD: "mod">
+| <ORIGINAL: "@original">
+}
 
 
 /* IDENTIFIERS AND NUMBERS */
@@ -180,7 +182,9 @@ MORE:
 	| <ID_ENUM: ["A"-"Z"] ["A"-"Z"] ("_" | ["A"-"Z"] | <DIGIT>)*>
 	| <ID_DOMAIN: ["A"-"Z"] ("_" | ["a"-"z"] | ["A"-"Z"] | <DIGIT>)*>
 	| <ID_RULE: "r_" (<LETTER> | <DIGIT>)+>
-	| <ID_INVARIANT: "inv_" (<LETTER> | <DIGIT>)+>
+	| <ID_AXIOM: "inv_" (<LETTER> | <DIGIT>)+>
+	| <ID_CTL: "ctlSpec_" (<LETTER> | <DIGIT>)+>
+	| <ID_LTL: "ltlSpec_" (<LETTER> | <DIGIT>)+>
 	| <ID_FUNCTION: ["a"-"z"] (<LETTER> | <DIGIT>)*>
 	| <#LETTER: ["_","a"-"z","A"-"Z"]>
 	| <#DIGIT: ["0"-"9"]>
@@ -320,7 +324,7 @@ FSTInfo OriginalInit(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Initialization(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<INIT> n=ID(true){ replaceName("ID", n);}{ replaceName(n);} ":" [n=OriginalInit(true){ replaceName(n);}] (n=DomainInitialization(true){ replaceName(n);})* (n=FunctionInitialization(true){ replaceName(n);})* (n=AgentInitialization(true){ replaceName(n);})* [n=OriginalInit(true){ replaceName(n);}] {return productionEndTerminal("Initialization","{ID}","{ID}","AsmetaLInitializationConcatenation","Default",first,token);}
+	<INIT> n=ID(inTerminal){ replaceName("ID", n);}{ replaceName(n);} ":" (n=DomainInitialization(inTerminal){ replaceName(n);})* (n=FunctionInitialization(inTerminal){ replaceName(n);})* (n=AgentInitialization(inTerminal){ replaceName(n);})* {return productionEndNonTerminal("Initialization","{ID}","{ID}");}
 
  )  }
 
@@ -356,7 +360,95 @@ FSTInfo DefinitionsCommand(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Body(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=DefinitionsCommand(inTerminal){ replaceName(n);} (n=DomainDefinition(inTerminal){ replaceName(n);})* (n=FunctionDefinition(inTerminal){ replaceName(n);})* (n=RuleDeclaration(inTerminal){ replaceName(n);})* (n=CTLSPECS(inTerminal){ replaceName(n);})* (n=Invariant(inTerminal){ replaceName(n);})* {return productionEndNonTerminal("Body","-","-");}
+	n=DefinitionsCommand(inTerminal){ replaceName(n);} (n=Definition(inTerminal){ replaceName(n);})* {return productionEndNonTerminal("Body","-","-");}
+
+ )  }
+
+FSTInfo Definition(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	n=DomainDefinition(true){ replaceName("DomainDefinition", n);}{ replaceName(n);} {return productionEndTerminal("Definition1","domainDef{DomainDefinition}","domainDef{DomainDefinition}","Replacement","Default",first,token);}
+ |
+	n=FunctionDefinition(true){ replaceName(n);} {return productionEndTerminal("Definition2","-","-","Replacement","Default",first,token);}
+ |
+	n=RuleDeclaration(true){ replaceName(n);} {return productionEndTerminal("Definition3","-","-","Replacement","Default",first,token);}
+ |
+	n=Constraint(true){ replaceName(n);} {return productionEndTerminal("Definition4","-","-","Replacement","Default",first,token);}
+ |
+	n=Property(true){ replaceName(n);} {return productionEndTerminal("Definition5","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo Constraint(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	n=InvarConstraint(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Constraint1","-","-");}
+ |
+	n=FairnessConstraint(inTerminal){ replaceName(n);} {return productionEndNonTerminal("Constraint2","-","-");}
+
+ )  }
+
+FSTInfo FairnessConstraint(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	n=JusticeConstraint(true){ replaceName(n);} {return productionEndTerminal("FairnessConstraint1","-","-","Replacement","Default",first,token);}
+ |
+	n=CompassionConstraint(true){ replaceName(n);} {return productionEndTerminal("FairnessConstraint2","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo JusticeConstraint(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<JUSTICE> n=Term(true){ replaceName(n);} {return productionEndTerminal("JusticeConstraint","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo CompassionConstraint(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<COMPASSION> n=Term(true){ replaceName(n);} {return productionEndTerminal("CompassionConstraint","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo InvarConstraint(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<INVAR> n=Term(true){ replaceName(n);} {return productionEndTerminal("InvarConstraint","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo Property(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	n=Invariant(true){ replaceName("Invariant", n);}{ replaceName(n);} {return productionEndTerminal("Property1","-","Invariant{Invariant}","Replacement","Default",first,token);}
+ |
+	n=TemporalProperty(true){ replaceName("TemporalProperty", n);}{ replaceName(n);} {return productionEndTerminal("Property2","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo TemporalProperty(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	n=CTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty1","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+ |
+	n=LTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty2","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo CTLSpec(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<CTLSpec> [n=ID_CTL(true){ replaceName(n);} ":"] n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSpec","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo LTLSpec(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<LTLSpec> [n=ID_CTL(true){ replaceName(n);} ":"] n=Term(true){ replaceName(n);} {return productionEndTerminal("LTLSpec","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo ID_CTL(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<ID_CTL> {return productionEndTerminal("ID_CTL","-","-","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo ID_LTL(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<ID_LTL> {return productionEndTerminal("ID_LTL","-","-","Replacement","Default",first,token);}
 
  )  }
 
@@ -374,9 +466,9 @@ FSTInfo FunctionDefinition(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo RuleDeclaration(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	[<FINALRULE>] n=MacroDeclaration(true){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{MacroDeclaration}","{MacroDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
+	n=MacroDeclaration(true){ replaceName("MacroDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{MacroDeclaration}","{MacroDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
  |
-	[<FINALRULE>] n=TurboDeclaration(true){ replaceName("TurboDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{TurboDeclaration}","{TurboDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
+	n=TurboDeclaration(true){ replaceName("TurboDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{TurboDeclaration}","{TurboDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
 
  )  }
 
@@ -420,26 +512,6 @@ FSTInfo DomainOrFunctionIDOrRuleList(boolean inTerminal) : { Token first=null,t;
 
  )  }
 
-FSTInfo CTLSPECS(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
-} { {first=getToken(1); productionStart(inTerminal); } (
-	<CTLSPEC> n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSPECS1","{TOSTRING}","{TOSTRING}","AsmetaLCTLSPECSOverriding","Default",first,token);}
- |
-	<LTLSPEC> n=Term(true){ replaceName(n);} {return productionEndTerminal("CTLSPECS2","{TOSTRING}","{TOSTRING}","AsmetaLCTLSPECSOverriding","Default",first,token);}
-
- )  }
-
-FSTInfo InvariantRefinement(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
-} { {first=getToken(1); productionStart(inTerminal); } (
-	<FINALINVARIANT> <CONJUNCT> {return productionEndTerminal("InvariantRefinement1","-","-","Replacement","Default",first,token);}
- |
-	<CONJUNCT> <FINALINVARIANT> {return productionEndTerminal("InvariantRefinement2","-","-","Replacement","Default",first,token);}
- |
-	<FINALINVARIANT> {return productionEndTerminal("InvariantRefinement3","-","-","Replacement","Default",first,token);}
- |
-	<CONJUNCT> {return productionEndTerminal("InvariantRefinement4","-","-","Replacement","Default",first,token);}
-
- )  }
-
 FSTInfo UnnamedInvariant(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
 	<INVARIANT> <OVER> n=DomainOrFunctionIDOrRuleList(true){ replaceName(n);} ":" n=Term(true){ replaceName(n);} {return productionEndTerminal("UnnamedInvariant","-","-","Replacement","Default",first,token);}
@@ -456,7 +528,7 @@ FSTInfo Invariant(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo NamedInvariant(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<INVARIANT> n=ID_INVARIANT(true){ replaceName("ID_INVARIANT", n);}{ replaceName(n);} [n=InvariantRefinement(true){ replaceName(n);}] <OVER> n=DomainOrFunctionIDOrRuleList(true){ replaceName(n);} ":" n=Term(true){ replaceName(n);} {return productionEndTerminal("NamedInvariant","-","{ID_INVARIANT}","Replacement","Default",first,token);}
+	<INVARIANT> n=ID_INVARIANT(true){ replaceName(n);} <OVER> n=DomainOrFunctionIDOrRuleList(true){ replaceName(n);} ":" n=Term(true){ replaceName(n);} {return productionEndTerminal("NamedInvariant","-","{ID_AXIOM}","Replacement","Default",first,token);}
 
  )  }
 
@@ -1462,7 +1534,13 @@ FSTInfo ID_RULE(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo ID_INVARIANT(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	t=<ID_INVARIANT>{ replaceName(new FSTInfo("<ID_INVARIANT>",t.image));} {return productionEndTerminal("ID_INVARIANT","-","{<ID_INVARIANT>}","Replacement","Default",first,token);}
+	n=ID_Axiom(true){ replaceName("ID_Axiom", n);}{ replaceName(n);} {return productionEndTerminal("ID_INVARIANT","-","{ID_Axiom}","Replacement","Default",first,token);}
+
+ )  }
+
+FSTInfo ID_Axiom(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
+} { {first=getToken(1); productionStart(inTerminal); } (
+	<ID_AXIOM> {return productionEndTerminal("ID_Axiom","-","-","Replacement","Default",first,token);}
 
  )  }
 

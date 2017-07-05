@@ -69,104 +69,106 @@ MORE:
 /* RESERVED WORDS AND LITERALS */
 
 <DEFAULT> TOKEN : {
-	  <ASM: "asm"> : GENERIC_ID
-	| <MODULE: "module"> : GENERIC_ID
-	| <ORIGINAL: "@original">
-	| <FINALRULE: "@final_rule">
-	| <FINALINVARIANT: "@final_invariant">
-	| <CONJUNCT: "@conjunct">
-	| <ASYNCR: "asyncr">
-	| <IMPORT: "import"> : MODULE_ID
-	| <EXPORT: "export">
-	| <SIGNATURE: "signature">
-	| <INIT: "init"> : GENERIC_ID
-	| <Default: "default">
-	| <AGENT: "agent">
-	| <INVARIANT: "invariant">
-	| <OVER: "over">
-	| <DEFINITIONS: "definitions">
-	| <FUNCTION: "function">
-	| <STATIC: "static">
-	| <DYNAMIC: "dynamic">
-	| <DERIVED: "derived">
-	| <MONITORED: "monitored">
-	| <CONTROLLED: "controlled">
-	| <SHARED: "shared">
-	| <OUT: "out">
-	| <DOMAIN: "domain">
-	| <ANYDOMAIN: "anydomain">
-	| <BASIC: "basic">
-	| <ABSTRACT: "abstract">
-	| <ENUM: "enum">
-	| <SUBSETOF: "subsetof">
-	| <PROD: "Prod">
-	| <SEQ: "Seq">
-	| <POWERSET: "Powerset">
-	| <BAG: "Bag">
-	| <MAP: "Map">
-	| <RULEDOM: "Rule">
-	| <TRUE: "true">
-	| <FALSE: "false">
-	| <UNDEF: "undef">
-	| <IM_PART: "i">
-	| <IF: "if">
-	| <THEN: "then">
-	| <ELSE: "else">
-	| <ENDIF: "endif">
-	| <SWITCH: "switch">
-	| <END_SWITCH: "endswitch">
-	| <CASE: "case">
-	| <OTHERWISE: "otherwise">
-	| <ENDCASE: "endcase">
-	| <LET: "let">
-	| <ENDLET: "endlet">
-	| <EXIST: "exist">
-	| <UNIQUE: "unique">
-	| <WITH: "with">
-	| <FORALL: "forall">
-	| <Skip: "skip">
-	| <RULE: "rule">
-	| <MACRO: "macro">
-	| <TURBO: "turbo">
-	| <MAIN: "main">
-	| <PAR: "par">
-	| <ENDPAR: "endpar">
-	| <CHOOSE: "choose">
-	| <DO: "do">
-	| <IFNONE: "ifnone">
-	| <EXTEND: "extend">
-	| <seq: "seq">
-	| <ENDSEQ: "endseq">
-	| <ITERATE: "iterate">
-	| <ENDITERATE: "enditerate">
-	| <LOCAL: "local">
-	| <TRY: "try">
-	| <CATCH: "catch">
-	| <WHILE: "while">
-	| <WHILEREC: "whilerec">
-	| <IN: "in">
-	| <EQ: "=">
-	| <LT: "<">
-	| <LE: "<=">
-	| <GT: ">">
-	| <GE: ">=">
-	| <NEQ: "!=">
-	| <PLUS: "+">
-	| <MINUS: "-">
-	| <MULT: "*">
-	| <DIV: "/">
-	| <PWR: "^">
-	| <AND: "and">
-	| <NOT: "not">
-	| <OR: "or">
-	| <XOR: "xor">
-	| <IMPLIES: "implies">
-	| <MOD: "mod">
-	| <NOTIN: "notin">
-	| <IFF: "iff">
-	| <CTLSPEC: "CTLSPEC">	
-	| <LTLSPEC: "LTLSPEC">	
-	}
+<ASM: "asm"> : GENERIC_ID
+| <MODULE: "module"> : GENERIC_ID
+| <ASYNCR: "asyncr">
+| <IMPORT: "import"> : MODULE_ID
+| <EXPORT: "export">
+| <SIGNATURE: "signature">
+| <INIT: "init"> : GENERIC_ID
+| <Default: "default">
+| <AGENT: "agent">
+| <INVARIANT: "invariant">
+| <CTLSpec: "CTLSPEC">
+| <NAME: "NAME">
+| <LTLSpec: "LTLSPEC">
+| <JUSTICE: "JUSTICE">
+| <FAIRNESS: "FAIRNESS">
+| <COMPASSION: "COMPASSION">
+| <INVAR: "INVAR">
+| <OVER: "over">
+| <DEFINITIONS: "definitions">
+| <FUNCTION: "function">
+| <STATIC: "static">
+| <DYNAMIC: "dynamic">
+| <DERIVED: "derived">
+| <MONITORED: "monitored">
+| <CONTROLLED: "controlled">
+| <SHARED: "shared">
+| <OUT: "out">
+| <DOMAIN: "domain">
+| <ANYDOMAIN: "anydomain">
+| <BASIC: "basic">
+| <ABSTRACT: "abstract">
+| <ENUM: "enum">
+| <SUBSETOF: "subsetof">
+| <PROD: "Prod">
+| <SEQ: "Seq">
+| <POWERSET: "Powerset">
+| <BAG: "Bag">
+| <MAP: "Map">
+| <RULEDOM: "Rule">
+| <TRUE: "true">
+| <FALSE: "false">
+| <UNDEF: "undef">
+| <IM_PART: "i">
+| <IF: "if">
+| <THEN: "then">
+| <ELSE: "else">
+| <ENDIF: "endif">
+| <SWITCH: "switch">
+| <END_SWITCH: "endswitch">
+| <CASE: "case">
+| <OTHERWISE: "otherwise">
+| <ENDCASE: "endcase">
+| <LET: "let">
+| <ENDLET: "endlet">
+| <EXIST: "exist">
+| <UNIQUE: "unique">
+| <WITH: "with">
+| <FORALL: "forall">
+| <Skip: "skip">
+| <RULE: "rule">
+| <MACRO: "macro">
+| <TURBO: "turbo">
+| <MAIN: "main">
+| <PAR: "par">
+| <ENDPAR: "endpar">
+| <CHOOSE: "choose">
+| <DO: "do">
+| <IFNONE: "ifnone">
+| <EXTEND: "extend">
+| <seq: "seq">
+| <ENDSEQ: "endseq">
+| <ITERATE: "iterate">
+| <ENDITERATE: "enditerate">
+| <LOCAL: "local">
+| <TRY: "try">
+| <CATCH: "catch">
+| <WHILE: "while">
+| <WHILEREC: "whilerec">
+| <IN: "in">
+| <EQ: "=">
+| <LT: "<">
+| <LE: "<=">
+| <GT: ">">
+| <GE: ">=">
+| <NEQ: "!=">
+| <PLUS: "+">
+| <MINUS: "-">
+| <MULT: "*">
+| <DIV: "/">
+| <PWR: "^">
+| <NOTIN: "notin">
+| <IFF: "iff">
+| <AND: "and">
+| <NOT: "not">
+| <OR: "or">
+| <XOR: "xor">
+| <IMPLIES: "implies">
+| <MOD: "mod">
+| <ORIGINAL: "@original">
+}
 
 
 /* IDENTIFIERS AND NUMBERS */
@@ -180,7 +182,9 @@ MORE:
 	| <ID_ENUM: ["A"-"Z"] ["A"-"Z"] ("_" | ["A"-"Z"] | <DIGIT>)*>
 	| <ID_DOMAIN: ["A"-"Z"] ("_" | ["a"-"z"] | ["A"-"Z"] | <DIGIT>)*>
 	| <ID_RULE: "r_" (<LETTER> | <DIGIT>)+>
-	| <ID_INVARIANT: "inv_" (<LETTER> | <DIGIT>)+>
+	| <ID_AXIOM: "inv_" (<LETTER> | <DIGIT>)+>
+	| <ID_CTL: "ctlSpec_" (<LETTER> | <DIGIT>)+>
+	| <ID_LTL: "ltlSpec_" (<LETTER> | <DIGIT>)+>
 	| <ID_FUNCTION: ["a"-"z"] (<LETTER> | <DIGIT>)*>
 	| <#LETTER: ["_","a"-"z","A"-"Z"]>
 	| <#DIGIT: ["0"-"9"]>
@@ -276,8 +280,8 @@ Signature:	SignatureCommand ( Domain )* ( Function )* @!;
 OriginalInit:
 <ORIGINAL> "()";
 
-@FSTTerminal(name="{ID}", compose="AsmetaLInitializationConcatenation")
-Initialization:	<INIT> ID ":" [OriginalInit] ( DomainInitialization )* ( FunctionInitialization )* ( AgentInitialization )* [OriginalInit] @!;
+@FSTNonTerminal(name="{ID}")
+Initialization:	<INIT> ID ":"  ( DomainInitialization )* ( FunctionInitialization )* ( AgentInitialization )* @!;
 
 @FSTTerminal(name="{ID_DOMAIN}")
 DomainInitialization:	<DOMAIN> ID_DOMAIN "=" Term @!;
@@ -297,7 +301,64 @@ AgentInitialization:	<AGENT> ID_DOMAIN ":" MacroCallRule @!;
 DefinitionsCommand: <DEFINITIONS> ":";
 
 @FSTNonTerminal()
-Body:	DefinitionsCommand ( DomainDefinition )* ( FunctionDefinition )* ( RuleDeclaration )* (CTLSPECS)* ( Invariant )*;
+Body:	DefinitionsCommand  ( Definition )*;
+
+
+Definition:
+@FSTTerminal(name="domainDef{DomainDefinition}")
+DomainDefinition |
+FunctionDefinition |
+RuleDeclaration | 
+Constraint |
+Property
+;
+
+@FSTNonTerminal()
+Constraint:
+InvarConstraint |
+FairnessConstraint
+;
+
+FairnessConstraint:
+JusticeConstraint | CompassionConstraint
+;
+
+JusticeConstraint:
+<JUSTICE> Term
+;
+
+CompassionConstraint:
+<COMPASSION> Term
+;
+
+
+InvarConstraint:
+<INVAR> Term
+;
+
+Property:
+@FSTExportName("Invariant{Invariant}")
+Invariant |
+@FSTExportName("TemporalProperty{TemporalProperty}")
+TemporalProperty
+;
+
+@FSTExportName("TemporalProperty{TemporalProperty}")
+ TemporalProperty:
+ CTLSpec |
+ LTLSpec
+ ;
+
+CTLSpec:
+<CTLSpec> [ID_CTL ":"] Term
+;
+
+LTLSpec:
+<LTLSpec> [ID_CTL ":"] Term
+;
+
+ID_CTL:	<ID_CTL>;
+ID_LTL: <ID_LTL>;
 
 @FSTTerminal(name="{ID_DOMAIN}")
 DomainDefinition:	<DOMAIN> ID_DOMAIN "=" Term @!;
@@ -310,9 +371,9 @@ FunctionDefinition:
 
 RuleDeclaration: 
 @FSTTerminal(name="{MacroDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
-	[<FINALRULE>] MacroDeclaration @! | 
+	 MacroDeclaration @! | 
 @FSTTerminal(name="{TurboDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
-	[<FINALRULE>] TurboDeclaration @!;
+	 TurboDeclaration @!;
 
 @FSTExportName("{ID_RULE}")
 MacroDeclaration:	
@@ -342,16 +403,6 @@ DomainOrFunctionIDOrRuleList:
 	&LI DomainOrFunctionIDOrRule ( "," &LI DomainOrFunctionIDOrRule )*
 ;
 
-@FSTTerminal(name="{TOSTRING}", compose="AsmetaLCTLSPECSOverriding")
-CTLSPECS: <CTLSPEC> Term | <LTLSPEC> Term;
-
-InvariantRefinement:
-<FINALINVARIANT> <CONJUNCT> |
-<CONJUNCT> <FINALINVARIANT> |
-<FINALINVARIANT> |
-<CONJUNCT>
-;
-
 
 
 UnnamedInvariant:
@@ -366,9 +417,9 @@ Invariant:
 @FSTTerminal(name="{NamedInvariant}", type = "Invariant", compose="AsmetaLInvariantConjunction")
 	NamedInvariant;
 	
-@FSTExportName("{ID_INVARIANT}")
+@FSTExportName("{ID_AXIOM}")
 NamedInvariant:	
-	<INVARIANT> ID_INVARIANT [InvariantRefinement] <OVER> 
+	<INVARIANT> ID_INVARIANT <OVER> 
 	DomainOrFunctionIDOrRuleList
 	  ":" Term @!
 ;
@@ -721,8 +772,12 @@ ID_RULE:	<ID_RULE>;
 
 
 
-@FSTExportName("{<ID_INVARIANT>}")
-ID_INVARIANT:	<ID_INVARIANT>;
+@FSTExportName("{ID_Axiom}")
+ID_INVARIANT:ID_Axiom;
+
+ID_Axiom:
+<ID_AXIOM>
+;
 
 @FSTExportName("{<ID_FUNCTION>}")
 ID_FUNCTION:	<ID_FUNCTION>;

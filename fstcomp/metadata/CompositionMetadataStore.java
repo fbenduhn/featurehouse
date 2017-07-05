@@ -128,7 +128,31 @@ public final class CompositionMetadataStore {
 		
 		return methodName;
 	}
+	/**
+	 * extracts the rule name (rule name for AsmetaL) from the node
+	 * 
+	 * this assumes the node is a `RuleDeclaration` node.
+	 * 
+	 * @param node 
+	 * 				a `RuleDeclaration` node.
+	 * @return
+	 * 				the rule name e.g. "main"
+	 */
+	public String getRuleName(FSTNode node) {
+		String methodName = node.getName();
 
+		StringTokenizer st = new StringTokenizer(methodName, "(");
+		if (st.hasMoreTokens()) {
+			methodName = st.nextToken();
+		}
+		st = new StringTokenizer(methodName, " ");
+
+		while (st.hasMoreTokens()) {
+			methodName = st.nextToken();
+		}
+		
+		return methodName;
+	}
 	/**
 	 * extracts the method name from the node (Java)
 	 * 

@@ -322,11 +322,7 @@ public class FSTGenComposer extends FSTGenProcessor {
 	}
 
 	public FSTNode compose(FSTNode nodeA, FSTNode nodeB, FSTNonTerminal compParent) {
-		// if called directly the composition rules might have not been added.
-		if (compositionRules == null)
-			compositionRules = new ArrayList<CompositionRule>();
-		compositionRules.add(new AsmetaLSwitchRefinement());
-		compositionRules.add(new AsmetaLRuleRefinement());
+
 		//same name and same type
 		if (nodeA.compatibleWith(nodeB)) {
 			FSTNode compNode = nodeA.getShallowClone();
@@ -369,12 +365,17 @@ public class FSTGenComposer extends FSTGenProcessor {
 				CompositionRule applicableRule = null;
 				// get applicable rule from compositionRules
 				for (CompositionRule rule : compositionRules) {
+
 					if (terminalA.getCompositionMechanism().equals(rule.getRuleName())) {
 						applicableRule = rule;
 						break;
 					}
 				}
+
+				
 				if (applicableRule != null) {
+					
+					
 					// apply composition rule
 					try {
 						applicableRule.compose(terminalA, terminalB, terminalComp, nonterminalParent);
