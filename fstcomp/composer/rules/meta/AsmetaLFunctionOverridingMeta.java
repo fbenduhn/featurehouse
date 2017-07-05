@@ -1,11 +1,11 @@
 package composer.rules.meta;
 
 
-import composer.rules.AsmetaLFunctionOverriding;
+import composer.rules.AsmetaLFunctionConjunction;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
 import de.ovgu.cide.fstgen.ast.FSTTerminal;
 
-public class AsmetaLFunctionOverridingMeta extends AsmetaLFunctionOverriding{
+public class AsmetaLFunctionOverridingMeta extends AsmetaLFunctionConjunction{
 
 	
 	@Override

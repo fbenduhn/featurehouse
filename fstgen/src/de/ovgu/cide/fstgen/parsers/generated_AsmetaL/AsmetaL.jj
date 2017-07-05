@@ -316,15 +316,9 @@ FSTInfo Signature(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
  )  }
 
-FSTInfo OriginalInit(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
-} { {first=getToken(1); productionStart(inTerminal); } (
-	<ORIGINAL> "()" {return productionEndTerminal("OriginalInit","-","-","Replacement","Default",first,token);}
-
- )  }
-
 FSTInfo Initialization(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<INIT> n=ID(inTerminal){ replaceName("ID", n);}{ replaceName(n);} ":" (n=DomainInitialization(inTerminal){ replaceName(n);})* (n=FunctionInitialization(inTerminal){ replaceName(n);})* (n=AgentInitialization(inTerminal){ replaceName(n);})* {return productionEndNonTerminal("Initialization","{ID}","{ID}");}
+	<INIT> n=ID(true){ replaceName(n);} ":" (n=DomainInitialization(true){ replaceName(n);})* (n=FunctionInitialization(true){ replaceName(n);})* (n=AgentInitialization(true){ replaceName(n);})* {return productionEndTerminal("Initialization","-","-","Replacement","Default",first,token);}
 
  )  }
 
@@ -342,7 +336,7 @@ FSTInfo TermInDomainList(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo FunctionInitialization(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<FUNCTION> n=ID_FUNCTION(true){ replaceName("ID_FUNCTION", n);}{ replaceName(n);} [n=TermInDomainList(true){ replaceName(n);}] "=" n=Term(true){ replaceName(n);} {return productionEndTerminal("FunctionInitialization","{ID_FUNCTION}","{ID_FUNCTION}","AsmetaLFunctionOverriding","Default",first,token);}
+	<FUNCTION> n=ID_FUNCTION(true){ replaceName("ID_FUNCTION", n);}{ replaceName(n);} [n=TermInDomainList(true){ replaceName(n);}] "=" n=Term(true){ replaceName(n);} {return productionEndTerminal("FunctionInitialization","{ID_FUNCTION}","{ID_FUNCTION}","AsmetaLFunctionConjunction","Default",first,token);}
 
  )  }
 
@@ -366,15 +360,15 @@ FSTInfo Body(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Definition(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=DomainDefinition(true){ replaceName("DomainDefinition", n);}{ replaceName(n);} {return productionEndTerminal("Definition1","domainDef{DomainDefinition}","domainDef{DomainDefinition}","Replacement","Default",first,token);}
+	n=DomainDefinition(true){ replaceName("DomainDefinition", n);}{ replaceName(n);} {return productionEndTerminal("DomainDefinition","{DomainDefinition}","{DomainDefinition}","Replacement","Default",first,token);}
  |
-	n=FunctionDefinition(true){ replaceName(n);} {return productionEndTerminal("Definition2","-","-","Replacement","Default",first,token);}
+	n=FunctionDefinition(true){ replaceName("FunctionDefinition", n);}{ replaceName(n);} {return productionEndTerminal("FunctionDefinition","{FunctionDefinition}","{FunctionDefinition}","AsmetaLFunctionConjunction","Default",first,token);}
  |
-	n=RuleDeclaration(true){ replaceName(n);} {return productionEndTerminal("Definition3","-","-","Replacement","Default",first,token);}
+	n=RuleDeclaration(true){ replaceName("RuleDeclaration", n);}{ replaceName(n);} {return productionEndTerminal("RuleDeclaration","{RuleDeclaration}","{RuleDeclaration}","AsmetaLRuleRefinement","Default",first,token);}
  |
-	n=Constraint(true){ replaceName(n);} {return productionEndTerminal("Definition4","-","-","Replacement","Default",first,token);}
+	n=Constraint(true){ replaceName(n);} {return productionEndTerminal("Definition4","{TOSTRING}","{TOSTRING}","Replacement","Default",first,token);}
  |
-	n=Property(true){ replaceName(n);} {return productionEndTerminal("Definition5","-","-","Replacement","Default",first,token);}
+	n=Property(true){ replaceName(n);} {return productionEndTerminal("Definition5","{TOSTRING}","{TOSTRING}","Replacement","Default",first,token);}
 
  )  }
 
@@ -414,17 +408,17 @@ FSTInfo InvarConstraint(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo Property(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=Invariant(true){ replaceName("Invariant", n);}{ replaceName(n);} {return productionEndTerminal("Property1","-","Invariant{Invariant}","Replacement","Default",first,token);}
+	n=Invariant(true){ replaceName("Invariant", n);}{ replaceName(n);} {return productionEndTerminal("Property1","Invariant{Invariant}","Invariant{Invariant}","Replacement","Default",first,token);}
  |
-	n=TemporalProperty(true){ replaceName("TemporalProperty", n);}{ replaceName(n);} {return productionEndTerminal("Property2","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+	n=TemporalProperty(true){ replaceName("TemporalProperty", n);}{ replaceName(n);} {return productionEndTerminal("Property2","TemporalProperty{TemporalProperty}","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
 
  )  }
 
 FSTInfo TemporalProperty(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	n=CTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty1","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+	n=CTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty1","-","-","Replacement","Default",first,token);}
  |
-	n=LTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty2","-","TemporalProperty{TemporalProperty}","Replacement","Default",first,token);}
+	n=LTLSpec(true){ replaceName(n);} {return productionEndTerminal("TemporalProperty2","-","-","Replacement","Default",first,token);}
 
  )  }
 
@@ -460,7 +454,7 @@ FSTInfo DomainDefinition(boolean inTerminal) : { Token first=null,t;FSTInfo n;
 
 FSTInfo FunctionDefinition(boolean inTerminal) : { Token first=null,t;FSTInfo n; 
 } { {first=getToken(1); productionStart(inTerminal); } (
-	<FUNCTION> n=ID_FUNCTION(true){ replaceName("ID_FUNCTION", n);}{ replaceName(n);} [n=TermInDomainList(true){ replaceName(n);}] "=" n=Term(true){ replaceName(n);} {return productionEndTerminal("FunctionDefinition","{ID_FUNCTION}","{ID_FUNCTION}","AsmetaLFunctionOverriding","Default",first,token);}
+	<FUNCTION> n=ID_FUNCTION(true){ replaceName("ID_FUNCTION", n);}{ replaceName(n);} [n=TermInDomainList(true){ replaceName(n);}] "=" n=Term(true){ replaceName(n);} {return productionEndTerminal("FunctionDefinition","{ID_FUNCTION}","{ID_FUNCTION}","AsmetaLFunctionConjunction","Default",first,token);}
 
  )  }
 

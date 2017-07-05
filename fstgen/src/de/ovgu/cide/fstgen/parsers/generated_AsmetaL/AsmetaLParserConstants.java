@@ -267,7 +267,6 @@ public interface AsmetaLParserConstants {
     "\",\"",
     "\")\"",
     "\":\"",
-    "\"()\"",
     "\"{\"",
     "\"|\"",
     "\"}\"",

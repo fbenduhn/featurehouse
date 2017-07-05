@@ -146,28 +146,6 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 			printFeatures(nonTerminal,false);
 			return false;
 		}
-		if (nonTerminal.getType().equals("Initialization")) {
-			printFeatures(nonTerminal,true);
-			{
-				FSTNode v=getChild(nonTerminal, "ID");
-				if (v!=null) {
-					v.accept(this);
-				}
-			}
-			printToken(":");
-			for (FSTNode v : getChildren(nonTerminal,"DomainInitialization")) {
-				v.accept(this);
-			}
-			for (FSTNode v : getChildren(nonTerminal,"FunctionInitialization")) {
-				v.accept(this);
-			}
-			for (FSTNode v : getChildren(nonTerminal,"AgentInitialization")) {
-				v.accept(this);
-			}
-			hintNewLine();
-			printFeatures(nonTerminal,false);
-			return false;
-		}
 		if (nonTerminal.getType().equals("Body")) {
 			printFeatures(nonTerminal,true);
 			{
@@ -221,6 +199,7 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals(expectedType)) return true;
 		if (type.equals("Definition4") && expectedType.equals("Definition")) return true;
 		if (type.equals("BooleanTerm1") && expectedType.equals("BooleanTerm")) return true;
+		if (type.equals("FunctionDefinition") && expectedType.equals("Definition")) return true;
 		if (type.equals("BasicFunction1") && expectedType.equals("BasicFunction")) return true;
 		if (type.equals("basicExpr5") && expectedType.equals("basicExpr")) return true;
 		if (type.equals("BasicRule7") && expectedType.equals("BasicRule")) return true;
@@ -251,14 +230,13 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("ReladditiveExpr4") && expectedType.equals("ReladditiveExpr")) return true;
 		if (type.equals("PlusMinusMultiExpr2") && expectedType.equals("PlusMinusMultiExpr")) return true;
 		if (type.equals("TurboDerivedRule1") && expectedType.equals("TurboDerivedRule")) return true;
-		if (type.equals("RuleDeclaration") && expectedType.equals("MainMacroDeclaration")) return true;
+		if (type.equals("RuleDeclaration") && expectedType.equals("Definition")) return true;
 		if (type.equals("unaryExpr1") && expectedType.equals("unaryExpr")) return true;
 		if (type.equals("FiniteQuantificationTerm1") && expectedType.equals("FiniteQuantificationTerm")) return true;
 		if (type.equals("BXB_BExpression3") && expectedType.equals("BXB_BExpression")) return true;
 		if (type.equals("ConstantTerm3") && expectedType.equals("ConstantTerm")) return true;
 		if (type.equals("TermAsRule1") && expectedType.equals("TermAsRule")) return true;
 		if (type.equals("BasicRule9") && expectedType.equals("BasicRule")) return true;
-		if (type.equals("Definition2") && expectedType.equals("Definition")) return true;
 		if (type.equals("DynamicFunction2") && expectedType.equals("DynamicFunction")) return true;
 		if (type.equals("ExtendedTerm6") && expectedType.equals("ExtendedTerm")) return true;
 		if (type.equals("BasicRule1") && expectedType.equals("BasicRule")) return true;
@@ -279,7 +257,6 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("BasicFunction2") && expectedType.equals("BasicFunction")) return true;
 		if (type.equals("Constraint2") && expectedType.equals("Constraint")) return true;
 		if (type.equals("TypeDomain1") && expectedType.equals("TypeDomain")) return true;
-		if (type.equals("Definition3") && expectedType.equals("Definition")) return true;
 		if (type.equals("DynamicFunction1") && expectedType.equals("DynamicFunction")) return true;
 		if (type.equals("BasicRule2") && expectedType.equals("BasicRule")) return true;
 		if (type.equals("ExtendedTerm5") && expectedType.equals("ExtendedTerm")) return true;
@@ -297,6 +274,7 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("DomainOrFunctionIDOrRule2") && expectedType.equals("DomainOrFunctionIDOrRule")) return true;
 		if (type.equals("ReladditiveExpr2") && expectedType.equals("ReladditiveExpr")) return true;
 		if (type.equals("BasicRule3") && expectedType.equals("BasicRule")) return true;
+		if (type.equals("DomainDefinition") && expectedType.equals("Definition")) return true;
 		if (type.equals("TypeDomain2") && expectedType.equals("TypeDomain")) return true;
 		if (type.equals("ConstantTerm9") && expectedType.equals("ConstantTerm")) return true;
 		if (type.equals("Term1") && expectedType.equals("Term")) return true;
@@ -314,7 +292,6 @@ public class SimplePrintVisitor extends AbstractFSTPrintVisitor  {
 		if (type.equals("signpowerExpr2") && expectedType.equals("signpowerExpr")) return true;
 		if (type.equals("TemporalProperty1") && expectedType.equals("TemporalProperty")) return true;
 		if (type.equals("BasicRule4") && expectedType.equals("BasicRule")) return true;
-		if (type.equals("Definition1") && expectedType.equals("Definition")) return true;
 		if (type.equals("ExtendedTerm7") && expectedType.equals("ExtendedTerm")) return true;
 		if (type.equals("ConstantTerm8") && expectedType.equals("ConstantTerm")) return true;
 		if (type.equals("DomainOrFunctionOrRule2") && expectedType.equals("DomainOrFunctionOrRule")) return true;

@@ -208,7 +208,7 @@ AsmOrModule:
 ;
 
 
-DefaultCommand: <Default>;
+DefaultCommand: <Default> ;
 
 @FSTNonTerminal()
 DefaultInitialization:
@@ -277,10 +277,8 @@ SignatureCommand: <SIGNATURE> ":";
 @FSTNonTerminal(name="{<SIGNATURE>}")
 Signature:	SignatureCommand ( Domain )* ( Function )* @!; 
 
-OriginalInit:
-<ORIGINAL> "()";
 
-@FSTNonTerminal(name="{ID}")
+
 Initialization:	<INIT> ID ":"  ( DomainInitialization )* ( FunctionInitialization )* ( AgentInitialization )* @!;
 
 @FSTTerminal(name="{ID_DOMAIN}")
@@ -290,7 +288,7 @@ TermInDomainList:
  	"(" &LI TermInDomain ( "," &LI TermInDomain )* ")"
 ;
 
-@FSTTerminal(name="{ID_FUNCTION}", compose="AsmetaLFunctionOverriding")
+@FSTTerminal(name="{ID_FUNCTION}", compose="AsmetaLFunctionConjunction")
 FunctionInitialization:
 	<FUNCTION> ID_FUNCTION [TermInDomainList] "=" Term @!
 ;
@@ -305,11 +303,15 @@ Body:	DefinitionsCommand  ( Definition )*;
 
 
 Definition:
-@FSTTerminal(name="domainDef{DomainDefinition}")
+@FSTTerminal(name="{DomainDefinition}", type = "DomainDefinition" )
 DomainDefinition |
+@FSTTerminal(name="{FunctionDefinition}",type="FunctionDefinition", compose="AsmetaLFunctionConjunction")
 FunctionDefinition |
+@FSTTerminal(name="{RuleDeclaration}",type="RuleDeclaration", compose="AsmetaLRuleRefinement")
 RuleDeclaration | 
+@FSTTerminal(name="{TOSTRING}")
 Constraint |
+@FSTTerminal(name="{TOSTRING}")
 Property
 ;
 
@@ -337,13 +339,12 @@ InvarConstraint:
 ;
 
 Property:
-@FSTExportName("Invariant{Invariant}")
+@FSTTerminal(name="Invariant{Invariant}")
 Invariant |
-@FSTExportName("TemporalProperty{TemporalProperty}")
+@FSTTerminal(name="TemporalProperty{TemporalProperty}")
 TemporalProperty
 ;
 
-@FSTExportName("TemporalProperty{TemporalProperty}")
  TemporalProperty:
  CTLSpec |
  LTLSpec
@@ -363,7 +364,7 @@ ID_LTL: <ID_LTL>;
 @FSTTerminal(name="{ID_DOMAIN}")
 DomainDefinition:	<DOMAIN> ID_DOMAIN "=" Term @!;
 
-@FSTTerminal(name="{ID_FUNCTION}", compose="AsmetaLFunctionOverriding")
+@FSTTerminal(name="{ID_FUNCTION}", compose="AsmetaLFunctionConjunction")
 FunctionDefinition:
 	<FUNCTION> ID_FUNCTION [TermInDomainList] "=" Term @!
 ;

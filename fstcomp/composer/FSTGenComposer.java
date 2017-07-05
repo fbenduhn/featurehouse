@@ -16,7 +16,7 @@ import builder.capprox.CApproxBuilder;
 import builder.java.JavaBuilder;
 import builder.xml.XMLHook;
 import builder.xml.XMLNode;
-import composer.rules.AsmetaLFunctionOverriding;
+import composer.rules.AsmetaLFunctionConjunction;
 
 import composer.rules.AsmetaLInitializationConcatenation;
 import composer.rules.AsmetaLInvariantConjunction;
@@ -102,7 +102,7 @@ public class FSTGenComposer extends FSTGenProcessor {
 		compositionRules.add(new ImplementsListMerging());
 		compositionRules.add(new CSharpMethodOverriding());
 		compositionRules.add(new AsmetaLRuleRefinement());
-		compositionRules.add(new AsmetaLFunctionOverriding());
+		compositionRules.add(new AsmetaLFunctionConjunction());
 		compositionRules.add(new AsmetaLInitializationConcatenation());
 		compositionRules.add(new AsmetaLInvariantConjunction());
 		compositionRules.add(new AsmetaLSwitchRefinement());
